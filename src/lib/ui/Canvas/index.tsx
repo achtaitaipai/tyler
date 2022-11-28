@@ -1,7 +1,8 @@
 import { useAtom } from 'jotai'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { match } from 'ts-pattern'
 import useMouseEvents from '../../hooks/useMouseEvents'
+import { getCellsAtom, mapHeightAtom, mapWidthAtom } from '../../store/grid'
 import { toolAtom } from '../../store/tool'
 import { CanvasEvent } from '../../types/mouseEvents'
 import { Position } from '../../types/position'
@@ -13,10 +14,13 @@ const Canvas = () => {
 	const [zoom, setZoom] = useState(1)
 	const [tool] = useAtom(toolAtom)
 
+	const [width] = useAtom(mapWidthAtom)
+	const [height] = useAtom(mapHeightAtom)
+	const [getCells] = useAtom(getCellsAtom)
+
 	const handleCanvas = (oldPosition: Position, newPosition: Position) => {
 		const tx = newPosition.x - oldPosition.x
 		const ty = newPosition.y - oldPosition.y
-		console.log(tx, ty)
 		setTranslate((value) => ({
 			x: value.x + tx,
 			y: value.y + ty,
@@ -27,7 +31,6 @@ const Canvas = () => {
 		const canvas = canvasRef.current
 		if (!canvas) return
 		const { width, height } = canvas.getBoundingClientRect()
-		console.log(width)
 		if (direction > 0) {
 			const tx = mousePosition.x * width - mousePosition.x * width * 1.2
 			const ty = mousePosition.y * height - mousePosition.y * height * 1.2
@@ -47,7 +50,7 @@ const Canvas = () => {
 		}
 	}
 
-	const handleEvent = (canvasEvent: CanvasEvent) => {
+	const handleEvents = (canvasEvent: CanvasEvent) => {
 		const payload = {
 			event: canvasEvent,
 			tool,
@@ -71,6 +74,10 @@ const Canvas = () => {
 				const data = payload.event.data
 				zoomCanvas(-1, data.mousePosition)
 			})
+			.with({ event: { type: 'wheel' } }, (payload) => {
+				const data = payload.event.data
+				zoomCanvas(data.direction, data.mousePosition)
+			})
 			.with(
 				{
 					tool: 'handle',
@@ -84,10 +91,6 @@ const Canvas = () => {
 					)
 				}
 			)
-			.with({ event: { type: 'wheel' } }, (payload) => {
-				const data = payload.event.data
-				zoomCanvas(data.direction, data.mousePosition)
-			})
 			.with(
 				{ event: { type: 'drag', data: { button: 1 } } },
 				(payload) => {
@@ -103,16 +106,27 @@ const Canvas = () => {
 			})
 	}
 
-	useMouseEvents(canvasRef, handleEvent)
+	useMouseEvents(canvasRef, handleEvents)
+
+	useEffect(() => {
+		const ctx = canvasRef.current?.getContext('2d')
+		if (!ctx) return
+		ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+		getCells.forEach((tile) => {
+			if (tile !== null) ctx.drawImage(...tile)
+		})
+	}, [canvasRef, getCells])
 
 	return (
 		<div className={style.wrapper}>
 			<canvas
 				ref={canvasRef}
 				className={style.canvas}
-				width={150}
-				height={300}
+				width={width}
+				height={height}
 				style={{
+					width: width > height ? '100%' : 'auto',
+					height: width > height ? 'auto' : '100%',
 					transform: `translate(${translate.x}px, ${translate.y}px) scale(${zoom}) `,
 				}}
 			/>
