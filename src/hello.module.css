@@ -1,0 +1,4 @@
+.hello {
+	color: var(--clr-brand9);
+	font-size: var(--size-8);
+}
