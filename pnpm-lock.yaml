@@ -17,6 +17,7 @@ specifiers:
   prettier: ^2.8.0
   react: ^18.2.0
   react-dom: ^18.2.0
+  ts-pattern: ^4.0.6
   typescript: ^4.6.4
   vite: ^3.2.3
 
@@ -25,6 +26,7 @@ dependencies:
   open-props: 1.5.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  ts-pattern: 4.0.6
 
 devDependencies:
   '@ladle/react': 2.4.5_biqbaboplfbrettd7655fr4n2y
@@ -4837,6 +4839,10 @@ packages:
       yn: 3.1.1
     dev: true
     optional: true
+
+  /ts-pattern/4.0.6:
+    resolution: {integrity: sha512-sFHQYD4KoysBi7e7a2mzDPvRBeqA4w+vEyRE+P5MU9VLq8eEYxgKCgD9RNEAT+itGRWUTYN+hry94GDPLb1/Yw==}
+    dev: false
 
   /tsconfig-paths/4.1.0:
     resolution: {integrity: sha512-AHx4Euop/dXFC+Vx589alFba8QItjF+8hf8LtmuiCwHyI4rHXQtOOENaM8kvYf5fR0dRChy3wzWIZ9WbB7FWow==}

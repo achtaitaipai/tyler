@@ -1,0 +1,19 @@
+.wrapper {
+	border: 1px solid red;
+	width: 500px;
+	height: 500px;
+	display: grid;
+	place-items: center;
+	overflow: hidden;
+	background-color: black;
+}
+
+.canvas {
+	background-color: white;
+	display: block;
+	height: 100%;
+	width: auto;
+	image-rendering: crisp-edges;
+	image-rendering: pixelated;
+	transform-origin: left top;
+}
