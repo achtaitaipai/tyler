@@ -1,0 +1,42 @@
+{
+	"name": "tyler",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"preview": "vite preview",
+		"commit": "cz",
+		"lint": "eslint .",
+		"format": "prettier . --write",
+		"stories": "ladle serve"
+	},
+	"config": {
+		"commitizen": {
+			"path": "cz-conventional-changelog"
+		}
+	},
+	"dependencies": {
+		"jotai": "^1.10.0",
+		"open-props": "^1.5.0",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
+	},
+	"devDependencies": {
+		"@ladle/react": "^2.4.5",
+		"@types/react": "^18.0.24",
+		"@types/react-dom": "^18.0.8",
+		"@typescript-eslint/eslint-plugin": "^5.44.0",
+		"@typescript-eslint/parser": "^5.44.0",
+		"@vitejs/plugin-react": "^2.2.0",
+		"commitizen": "^4.2.5",
+		"cz-conventional-changelog": "^3.3.0",
+		"eslint": "^8.28.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-react": "^7.31.11",
+		"prettier": "^2.8.0",
+		"typescript": "^4.6.4",
+		"vite": "^3.2.3"
+	}
+}
