@@ -1,0 +1,28 @@
+.wrapper {
+	/* border: 1px solid red; */
+	display: flex;
+	font-size: var(--font-size-5);
+	align-items: center;
+	gap: 1rem;
+}
+
+.icon {
+	display: block;
+	border: 1px solid var(--clr-neutral6);
+	color: var(--clr-neutral11);
+	padding: 0.2rem;
+	border-radius: 0.2rem;
+	cursor: pointer;
+	/* color: red; */
+}
+.icon:hover {
+	display: block;
+	border: 1px solid var(--clr-neutral7);
+	/* color: red; */
+}
+
+.iconChecked {
+	background-color: var(--clr-info10);
+	color: var(--clr-neutral4);
+	border: 1px solid var(--clr-brand5);
+}
