@@ -1,7 +1,9 @@
 import { useAtomValue, useSetAtom } from 'jotai'
+import { useAtomDevtools } from 'jotai/devtools'
 import { RefObject, useCallback, useState } from 'react'
 import { match } from 'ts-pattern'
 import {
+	floodFillGridAtom,
 	gridAtom,
 	gridHeightAtom,
 	gridWidthAtom,
@@ -20,15 +22,14 @@ import { useUnZoom } from './tools/useUnzoom'
 import { useZoom } from './tools/useZoom'
 
 const useManageMouseEvents = (ref: RefObject<HTMLElement>) => {
-	const grid = useAtomValue(gridAtom)
 	const gridWidth = useAtomValue(gridWidthAtom)
 	const gridHeight = useAtomValue(gridHeightAtom)
 	const setCell = useSetAtom(setCellAtom)
+	const floodFill = useAtomValue(floodFillGridAtom)
 	const tool = useAtomValue(toolAtom)
 	const currentTile = useAtomValue(selectedTileCharAtom)
 	const [translate, setTranslate] = useState({ x: 0, y: 0 })
 	const [scale, setScale] = useState(1)
-
 	const handleCanvas = (oldPosition: Position, newPosition: Position) => {
 		const tx = newPosition.x - oldPosition.x
 		const ty = newPosition.y - oldPosition.y
@@ -77,7 +78,7 @@ const useManageMouseEvents = (ref: RefObject<HTMLElement>) => {
 	const paint = usePaint(gridPosition, setCell, currentTile, defaultActions)
 	const erase = useErase(gridPosition, setCell, defaultActions)
 	const bucket = useBucket(
-		grid,
+		floodFill,
 		gridPosition,
 		setCell,
 		currentTile,

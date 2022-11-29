@@ -1,7 +1,5 @@
 import { match, P } from 'ts-pattern'
-import { bucket } from '../../../../helpers/bucket'
 import { Cell } from '../../../../types/cell'
-import { Grid } from '../../../../types/grid'
 import { CanvasEvent } from '../../../../types/mouseEvents'
 import { Position } from '../../../../types/position'
 
@@ -9,12 +7,13 @@ type GridPosition = (mousePosition: Position) => {
 	x: number
 	y: number
 }
+type FloodFill = (x: number, y: number) => Cell[] | undefined
 
 type SetCell = (cells: Cell | Cell[]) => void
 type DefaultActions = (event: CanvasEvent) => void
 
 const useBucket = (
-	grid: Grid,
+	floodFill: FloodFill,
 	gridPosition: GridPosition,
 	setCell: SetCell,
 	currentTile: string,
@@ -26,7 +25,7 @@ const useBucket = (
 				const { mousePosition, button } = payload.data
 				const { x, y } = gridPosition(mousePosition)
 				const value = button === 2 ? ' ' : currentTile
-				const cells = bucket(grid, x, y)?.map((c) => ({
+				const cells = floodFill(x, y)?.map((c) => ({
 					...c,
 					value,
 				}))

@@ -1,5 +1,6 @@
 import { atom } from 'jotai'
 import { atomWithStorage } from 'jotai/utils'
+import { floodFill } from '../helpers/floodFill'
 import { Cell } from '../types/cell'
 import { Grid } from '../types/grid'
 import {
@@ -10,8 +11,6 @@ import {
 } from './tileSet'
 
 export const gridAtom = atomWithStorage<Grid>('tylerGrid', [
-	'               ',
-	'               ',
 	'               ',
 	'               ',
 	'               ',
@@ -120,4 +119,9 @@ export const getCellsAtom = atom((get) => {
 			]
 		})
 	)
+})
+
+export const floodFillGridAtom = atom((get) => (x: number, y: number) => {
+	const grid = get(gridAtom)
+	return floodFill(grid, x, y)
 })
