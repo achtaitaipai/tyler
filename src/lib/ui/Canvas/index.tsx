@@ -33,8 +33,8 @@ const Canvas = () => {
 				width={width}
 				height={height}
 				style={{
-					width: width > height ? '100%' : 'auto',
-					height: width > height ? 'auto' : '100%',
+					width: width > height ? '90%' : 'auto',
+					height: width > height ? 'auto' : '90%',
 					transform: `translate(${translate.x}px, ${translate.y}px) scale(${zoom}) `,
 				}}
 			/>

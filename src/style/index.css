@@ -1,3 +1,7 @@
 @import 'open-props/postcss/style';
 @import 'color-system.css';
 @import 'reset.css';
+
+#root {
+	min-height: 100vh;
+}
