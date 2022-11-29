@@ -1,7 +1,7 @@
 import { RefObject, useEffect, useState } from 'react'
-import { CanvasEvent } from '../types/mouseEvents'
+import { CanvasEvent } from '../../../types/mouseEvents'
 
-const useMousePosition = (
+const useListenMouseEvents = (
 	ref: RefObject<HTMLElement>,
 	callback: (e: CanvasEvent) => void
 ) => {
@@ -110,4 +110,4 @@ const useMousePosition = (
 	}, [ref, mousePosition, setMousePosition])
 }
 
-export default useMousePosition
+export default useListenMouseEvents

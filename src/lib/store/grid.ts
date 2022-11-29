@@ -1,5 +1,7 @@
 import { atom } from 'jotai'
 import { atomWithStorage } from 'jotai/utils'
+import { Cell } from '../types/cell'
+import { Grid } from '../types/grid'
 import {
 	getTileAtom,
 	tilesetImageAtom,
@@ -7,11 +9,22 @@ import {
 	tilesWidthAtom,
 } from './tileSet'
 
-export const gridAtom = atomWithStorage('tylerGrid', [
-	'!$$$',
-	'###ŀ',
-	'####',
-	'####',
+export const gridAtom = atomWithStorage<Grid>('tylerGrid', [
+	'               ',
+	'               ',
+	'               ',
+	'               ',
+	'               ',
+	'               ',
+	'               ',
+	'               ',
+	'               ',
+	'               ',
+	'               ',
+	'               ',
+	'               ',
+	'               ',
+	'               ',
 ])
 
 export const gridWidthAtom = atom((get) => get(gridAtom)[0].length)
@@ -54,31 +67,26 @@ export const removeRowAtom = atom(null, (get, set, y: number) => {
 	set(gridAtom, [...get(gridAtom).slice(0, y), ...get(gridAtom).slice(y + 1)])
 })
 
-interface SetCellPayload {
-	x: number
-	y: number
-	value: string
-}
-
 export const getCellAtom = atom((get) => (x: number, y: number) => {
 	return get(gridAtom)[y].charAt(x)
 })
 
-export const setCellAtom = atom(
-	null,
-	(get, set, { x, y, value }: SetCellPayload) => {
+export const setCellAtom = atom(null, (get, set, cells: Cell | Cell[]) => {
+	let clone = [...get(gridAtom)]
+	const points = Array.isArray(cells) ? cells : [cells]
+	points.forEach(({ x, y, value }) => {
 		if (
-			x < 0 ||
-			x >= get(gridWidthAtom) ||
-			y < 0 ||
-			y >= get(gridHeightAtom)
-		)
-			return
-		const clone = [...get(gridAtom)]
-		const line = clone[y].slice(0, x) + value + clone[y].slice(x + 1)
-		set(gridAtom, [...clone.slice(0, y), line, ...clone.slice(y + 1)])
-	}
-)
+			x >= 0 &&
+			x < get(gridWidthAtom) &&
+			y >= 0 &&
+			y < get(gridHeightAtom)
+		) {
+			const line = clone[y].slice(0, x) + value + clone[y].slice(x + 1)
+			clone = [...clone.slice(0, y), line, ...clone.slice(y + 1)]
+		}
+	})
+	set(gridAtom, clone)
+})
 
 export const getCellsAtom = atom((get) => {
 	const grid = get(gridAtom)

@@ -2,13 +2,7 @@ import { atom } from 'jotai'
 import { atomWithStorage } from 'jotai/utils'
 import tilesetUrl from '../../assets/tileset.png'
 import { charsMap } from '../../settings/charMap'
-
-const loadImage = async (src: string) =>
-	new Promise<HTMLImageElement>((res) => {
-		const img = new Image()
-		img.src = src
-		img.onload = () => res(img)
-	})
+import { loadImage } from '../helpers/image'
 
 export const tilesetImageAtom = atomWithStorage<HTMLImageElement>(
 	'tylerimg',
@@ -29,6 +23,11 @@ export const tilesWidthAtom = atom(
 
 export const tilesHeightAtom = atom(
 	(get) => get(tilesetImageHeightAtom) / get(tilesetRowsAtom)
+)
+
+export const selectedTileIndexAtom = atom(3)
+export const selectedTileCharAtom = atom(
+	(get) => get(charMapAtom)[get(selectedTileIndexAtom)]
 )
 
 type Tile = null | [number, number, number, number]

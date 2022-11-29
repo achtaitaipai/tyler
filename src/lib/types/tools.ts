@@ -1,9 +1,2 @@
-export type Tool =
-	| 'zoom'
-	| 'unzoom'
-	| 'paint'
-	| 'erase'
-	| 'handle'
-	| 'move'
-	| 'bucket'
-	| 'autopaint'
+export type Tool = 'zoom' | 'unzoom' | 'paint' | 'erase' | 'move' | 'bucket'
+// | 'autopaint'
