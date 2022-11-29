@@ -1,0 +1,40 @@
+[data-theme='dark'] {
+	--sun-scale: 0;
+	--sun-rot: 360deg;
+	--moon-scale: 1;
+	--moon-rot: 0;
+}
+
+[data-theme='light'] {
+	--sun-scale: 1;
+	--sun-rot: 0;
+	--moon-scale: 0;
+	--moon-rot: 360deg;
+}
+
+.btn {
+	position: relative;
+	/* height: fit-content; */
+	line-height: 0;
+	padding: 0;
+	cursor: pointer;
+	background-color: transparent;
+	border: 0;
+	color: var(--clr-neutral12);
+}
+
+.sun {
+	stroke: currentColor;
+	transform: scale(var(--sun-scale)) rotate(var(--sun-rot));
+	transition: transform 0.3s var(--ease-squish-2), color 0.5s;
+	color: currentColor;
+}
+
+.moon {
+	position: absolute;
+	left: 0;
+	top: 0;
+	transform: scale(var(--moon-scale)) rotate(var(--moon-rot));
+	transition: transform 0.3s var(--ease-squish-2), color 0.5s;
+	color: currentColor;
+}

@@ -1,0 +1,5 @@
+.themeProvider {
+	background-color: var(--clr-neutral1);
+	min-height: 100%;
+	transition: backgroundColor 0.2s;
+}

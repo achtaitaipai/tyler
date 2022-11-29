@@ -148,7 +148,7 @@
 		--clr-info12: hsl(185, 73%, 93.2%);
 	}
 }
-[theme='light'] {
+[data-theme='light'] {
 	--clr-brand1: hsl(255, 65%, 99.4%);
 	--clr-brand2: hsl(252, 100%, 99%);
 	--clr-brand3: hsl(252, 96.9%, 97.4%);
@@ -222,7 +222,7 @@
 	--clr-info11: hsl(192, 85%, 31%);
 	--clr-info12: hsl(192, 88%, 12.5%);
 }
-[theme='dark'] {
+[data-theme='dark'] {
 	--clr-brand1: hsl(250, 20%, 10.2%);
 	--clr-brand2: hsl(255, 30.3%, 12.9%);
 	--clr-brand3: hsl(253, 37%, 18.4%);

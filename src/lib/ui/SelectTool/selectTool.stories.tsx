@@ -1,4 +1,4 @@
 import SelectTool from '.'
 
-export const selectToolStorie = () => <SelectTool />
-selectToolStorie.title = 'SelectTool'
+export const SelecttoolStorie = () => <SelectTool />
+SelecttoolStorie.storyName = 'SelectTool'
