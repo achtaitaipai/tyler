@@ -1,8 +1,8 @@
 import { useAtom } from 'jotai'
 import { useEffect, useRef } from 'react'
+import { getCellsAtom, mapHeightAtom, mapWidthAtom } from '../../store/grid'
 import { useEventsManager } from './hooks/useManageMouseEvents'
 import useMouseEvents from './hooks/useMouseEvents'
-import { getCellsAtom, mapHeightAtom, mapWidthAtom } from '../../store/grid'
 import style from './style.module.css'
 
 const Canvas = () => {

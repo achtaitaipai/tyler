@@ -1,10 +1,8 @@
 import { useAtomValue, useSetAtom } from 'jotai'
-import { useAtomDevtools } from 'jotai/devtools'
 import { RefObject, useCallback, useState } from 'react'
 import { match } from 'ts-pattern'
 import {
 	floodFillGridAtom,
-	gridAtom,
 	gridHeightAtom,
 	gridWidthAtom,
 	setCellAtom,

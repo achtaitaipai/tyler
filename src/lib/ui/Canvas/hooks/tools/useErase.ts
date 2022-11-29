@@ -20,12 +20,12 @@ const useErase = (
 	return function (event: CanvasEvent) {
 		match(event)
 			.with({ type: 'click', data: { button: P.not(1) } }, (payload) => {
-				const { mousePosition, button } = payload.data
+				const { mousePosition } = payload.data
 				const { x, y } = gridPosition(mousePosition)
 				setCell({ x, y, value: ' ' })
 			})
 			.with({ type: 'drag', data: { button: P.not(1) } }, (payload) => {
-				const { oldMousePosition, mousePosition, button } = payload.data
+				const { oldMousePosition, mousePosition } = payload.data
 				const point0 = gridPosition(oldMousePosition)
 				const point1 = gridPosition(mousePosition)
 				const points = line(point0, point1).map((p) => ({

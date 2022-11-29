@@ -1,18 +1,15 @@
-import { useState } from 'react'
 import { RadioGroup } from '@headlessui/react'
 import {
 	BlendingModeIcon,
 	EraserIcon,
 	HandIcon,
 	Pencil1Icon,
-	StarIcon,
 	ZoomInIcon,
 	ZoomOutIcon,
 } from '@radix-ui/react-icons'
-import style from './style.module.css'
-import { Tool } from '../../types/tools'
 import { useAtom } from 'jotai'
 import { toolAtom } from '../../store/tool'
+import style from './style.module.css'
 
 export default function SelectTool() {
 	const [plan, setPlan] = useAtom(toolAtom)
