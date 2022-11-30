@@ -1,6 +1,6 @@
 .wrapper {
 	background-color: var(--clr-neutral3);
-	border: 1px solid var(--clr-neutral6);
+	outline: 1px solid var(--clr-neutral6);
 	display: inline-flex;
 	padding-block: 1rem;
 	padding-inline: 0.25rem;
@@ -21,13 +21,14 @@
 }
 .icon:hover {
 	display: block;
-	background-color: var(--clr-neutral3);
+	background-color: var(--clr-neutral4);
+	outline: 1px solid var(--clr-neutral8);
 	/* color: red; */
 }
 
 .iconChecked {
 	/* background-color: var(--clr-info10); */
-	background-color: var(--clr-neutral2);
-	outline: 1px solid var(--clr-neutral6);
+	background-color: var(--clr-neutral5);
+	outline: 1px solid var(--clr-neutral7);
 	color: var(--clr-neutral12);
 }

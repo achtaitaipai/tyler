@@ -1,0 +1,22 @@
+.wrapper {
+	display: inline-grid;
+	grid-template-columns: 3rem auto 3rem;
+	grid-template-rows: 3rem auto 3rem;
+	/* background-color: red; */
+}
+
+.row {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	grid-column: 2;
+	gap: 1rem;
+}
+.column {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	grid-row: 2;
+	gap: 1rem;
+}
