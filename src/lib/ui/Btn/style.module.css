@@ -1,9 +1,9 @@
-.primary {
+.btn {
 	--bg: var(--clr-brand3);
 	--border: 1px solid var(--clr-brand7);
 	--color: var(--clr-neutral11);
 }
-.primary:hover {
+.btn:hover {
 	--bg: var(--clr-brand4);
 	--border: 1px solid var(--clr-brand8);
 	--color: var(--clr-neutral12);
@@ -17,11 +17,14 @@
 	border: 1px solid var(--border);
 	height: 1.8rem;
 	min-width: 1.8rem;
+	/* padding-inline: 1rem; */
 	color: var(--color);
 	font-weight: 700;
 	border-radius: 0.2rem;
 	display: grid;
-	margin: 0;
-	padding: 0;
 	cursor: pointer;
+}
+
+.primary {
+	padding-inline: 1rem;
 }

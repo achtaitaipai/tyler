@@ -22,34 +22,34 @@ function DrawingSection() {
 	return (
 		<div className={style.wrapper}>
 			<div className={style.row}>
-				<Btn onClick={() => insertRow(0)}>
+				<Btn onClick={() => insertRow(0)} type="Icon">
 					<PlusIcon />
 				</Btn>
-				<Btn onClick={() => removeRow(0)}>
+				<Btn onClick={() => removeRow(0)} type="Icon">
 					<MinusIcon />
 				</Btn>
 			</div>
 			<div className={style.row}>
-				<Btn onClick={() => insertRow(gridHeight)}>
+				<Btn onClick={() => insertRow(gridHeight)} type="Icon">
 					<PlusIcon />
 				</Btn>
-				<Btn onClick={() => removeRow(gridHeight - 1)}>
+				<Btn onClick={() => removeRow(gridHeight - 1)} type="Icon">
 					<MinusIcon />
 				</Btn>
 			</div>
 			<div className={style.column}>
-				<Btn onClick={() => insertColumn(0)}>
+				<Btn onClick={() => insertColumn(0)} type="Icon">
 					<PlusIcon />
 				</Btn>
-				<Btn onClick={() => removeColumn(0)}>
+				<Btn onClick={() => removeColumn(0)} type="Icon">
 					<MinusIcon />
 				</Btn>
 			</div>
 			<div className={style.column}>
-				<Btn onClick={() => insertColumn(gridWidth)}>
+				<Btn onClick={() => insertColumn(gridWidth)} type="Icon">
 					<PlusIcon />
 				</Btn>
-				<Btn onClick={() => removeColumn(gridWidth - 1)}>
+				<Btn onClick={() => removeColumn(gridWidth - 1)} type="Icon">
 					<MinusIcon />
 				</Btn>
 			</div>

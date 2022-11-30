@@ -1,4 +1,4 @@
 import Btn from '.'
 
-export const btnstorie = () => <Btn>Clique</Btn>
+export const btnstorie = () => <Btn type="Primary">Clique</Btn>
 btnstorie.storyName = 'Button'
