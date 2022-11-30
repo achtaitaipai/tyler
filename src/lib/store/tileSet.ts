@@ -31,9 +31,13 @@ export const selectedTileCharAtom = atom(
 )
 
 type Tile = null | [number, number, number, number]
-export const getTileAtom = atom((get) => (char: string): Tile => {
+export const getTileFromCharAtom = atom((get) => (char: string): Tile => {
 	const index = get(charMapAtom).findIndex((c) => c === char)
 	if (index === -1) return null
+	return get(getTileFromIndexAtom)(index)
+})
+
+export const getTileFromIndexAtom = atom((get) => (index: number): Tile => {
 	const cols = get(tilesetColumnsAtom)
 	const width = get(tilesWidthAtom)
 	const height = get(tilesHeightAtom)

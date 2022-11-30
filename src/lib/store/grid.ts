@@ -4,7 +4,7 @@ import { floodFill } from '../helpers/floodFill'
 import type { Cell } from '../types/cell'
 import type { Grid } from '../types/grid'
 import {
-	getTileAtom,
+	getTileFromCharAtom,
 	tilesetImageAtom,
 	tilesHeightAtom,
 	tilesWidthAtom,
@@ -91,7 +91,7 @@ export const getCellsAtom = atom((get) => {
 	const grid = get(gridAtom)
 	return grid.flatMap((line, y) =>
 		line.split('').map((c, x) => {
-			const tile = get(getTileAtom)(c)
+			const tile = get(getTileFromCharAtom)(c)
 			if (tile === null) return null
 			const [sx, sy, sWidth, sHeight] = tile
 			const dx = x * sWidth

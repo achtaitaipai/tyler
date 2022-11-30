@@ -1,0 +1,11 @@
+.wrapper {
+	outline: 1px solid var(--clr-neutral7);
+}
+
+.canvas {
+	width: 100%;
+	background-color: white;
+	display: block;
+	image-rendering: pixelated;
+	image-rendering: crisp-edges;
+}
