@@ -1,12 +1,8 @@
-import type { ReactNode } from 'react'
+import type { PropsWithChildren } from 'react'
 import useIsDark from '../../hooks/useIsDark'
 import style from './style.module.css'
 
-type ThemeProviderProps = {
-	children: ReactNode
-}
-
-function ThemeProvider({ children }: ThemeProviderProps) {
+function ThemeProvider({ children }: PropsWithChildren) {
 	const [isDark] = useIsDark()
 	return (
 		<div

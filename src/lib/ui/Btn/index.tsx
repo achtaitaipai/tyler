@@ -1,23 +1,20 @@
-import { type ReactNode } from 'react'
-import style from './style.module.css'
 import clsx from 'clsx'
+import { type InputHTMLAttributes, type PropsWithChildren } from 'react'
+import style from './style.module.css'
 
 type BtnType = 'Primary' | 'Icon'
 
-type BtnProps = {
-	children: ReactNode
-	onClick?: () => void
-	type?: BtnType
-}
+type BtnProps = PropsWithChildren<
+	{
+		type?: BtnType
+	} & InputHTMLAttributes<HTMLButtonElement>
+>
 
 export default function Btn({ children, onClick, type = 'Primary' }: BtnProps) {
-	const handleClick = () => {
-		if (onClick) onClick()
-	}
 	return (
 		<button
 			className={clsx(style.btn, type === 'Primary' && style.primary)}
-			onClick={handleClick}
+			onClick={onClick}
 		>
 			{children}
 		</button>
