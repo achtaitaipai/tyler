@@ -2,16 +2,16 @@ import type { Position } from './position'
 
 type Button = number
 
-interface EventClick {
+type EventClick = {
 	button: Button
 	mousePosition: Position
 }
 
-interface EventUnClick {
+type EventUnClick = {
 	mousePosition: Position
 }
 
-interface EventDrag {
+type EventDrag = {
 	button: Button
 	concreteMousePosition: Position
 	concreteOldMousePosition: Position
@@ -19,12 +19,12 @@ interface EventDrag {
 	oldMousePosition: Position
 }
 
-interface EventMove {
+type EventMove = {
 	mousePosition: Position
 	oldMousePosition: Position
 }
 
-interface EventWheel {
+type EventWheel = {
 	mousePosition: Position
 	direction: number
 }

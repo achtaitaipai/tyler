@@ -1,7 +1,7 @@
 import { useAtom } from 'jotai'
 import { tilesetImageAtom } from '../../store/tileSet'
 
-const Tileset = () => {
+function Tileset() {
 	const [tileSetImg] = useAtom(tilesetImageAtom)
 	return (
 		<>

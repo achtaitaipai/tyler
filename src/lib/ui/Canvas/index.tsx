@@ -5,7 +5,7 @@ import { useEventsManager } from './hooks/useManageMouseEvents'
 import useMouseEvents from './hooks/useMouseEvents'
 import style from './style.module.css'
 
-const Canvas = () => {
+function Canvas() {
 	const canvasRef = useRef<HTMLCanvasElement>(null)
 
 	const [width] = useAtom(mapWidthAtom)

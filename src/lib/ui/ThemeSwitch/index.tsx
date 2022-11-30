@@ -1,5 +1,5 @@
-import { useAtom, useSetAtom } from 'jotai'
-import { isDarkAtom, toggleAtom } from '../../store/theme'
+import { useAtom } from 'jotai'
+import { toggleAtom } from '../../store/theme'
 import style from './style.module.css'
 export default function ThemeSwitch() {
 	const [, toogleIsDark] = useAtom(toggleAtom)

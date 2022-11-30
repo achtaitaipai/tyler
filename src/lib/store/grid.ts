@@ -1,8 +1,8 @@
 import { atom } from 'jotai'
 import { atomWithStorage } from 'jotai/utils'
 import { floodFill } from '../helpers/floodFill'
-import { Cell } from '../types/cell'
-import { Grid } from '../types/grid'
+import type { Cell } from '../types/cell'
+import type { Grid } from '../types/grid'
 import {
 	getTileAtom,
 	tilesetImageAtom,

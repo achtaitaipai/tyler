@@ -1,5 +1,6 @@
 import { useAtomValue, useSetAtom } from 'jotai'
-import { RefObject, useCallback, useState } from 'react'
+import type { RefObject} from 'react';
+import { useCallback, useState } from 'react'
 import { match } from 'ts-pattern'
 import {
 	floodFillGridAtom,
@@ -9,8 +10,8 @@ import {
 } from '../../../store/grid'
 import { selectedTileCharAtom } from '../../../store/tileSet'
 import { toolAtom } from '../../../store/tool'
-import { CanvasEvent } from '../../../types/mouseEvents'
-import { Position } from '../../../types/position'
+import type { CanvasEvent } from '../../../types/mouseEvents'
+import type { Position } from '../../../types/position'
 import { useBucket } from './tools/useBucket'
 import { useDefaultActions } from './tools/useDefaultActions'
 import { useErase } from './tools/useErase'

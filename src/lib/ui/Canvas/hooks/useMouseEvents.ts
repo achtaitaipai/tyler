@@ -1,5 +1,6 @@
-import { RefObject, useEffect, useState } from 'react'
-import { CanvasEvent } from '../../../types/mouseEvents'
+import type { RefObject} from 'react';
+import { useEffect, useState } from 'react'
+import type { CanvasEvent } from '../../../types/mouseEvents'
 
 const useListenMouseEvents = (
 	ref: RefObject<HTMLElement>,

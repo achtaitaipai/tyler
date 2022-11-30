@@ -1,6 +1,6 @@
 import { match, P } from 'ts-pattern'
-import { CanvasEvent } from '../../../../types/mouseEvents'
-import { Position } from '../../../../types/position'
+import type { CanvasEvent } from '../../../../types/mouseEvents'
+import type { Position } from '../../../../types/position'
 
 type Zoom = (direction: number, mousePosition: Position) => void
 type DefaultActions = (event: CanvasEvent) => void

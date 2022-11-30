@@ -1,8 +1,8 @@
 import { match, P } from 'ts-pattern'
 import { line } from '../../../../helpers/line'
-import { Cell } from '../../../../types/cell'
-import { CanvasEvent } from '../../../../types/mouseEvents'
-import { Position } from '../../../../types/position'
+import type { Cell } from '../../../../types/cell'
+import type { CanvasEvent } from '../../../../types/mouseEvents'
+import type { Position } from '../../../../types/position'
 
 type GridPosition = (mousePosition: Position) => {
 	x: number

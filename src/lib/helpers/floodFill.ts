@@ -1,5 +1,5 @@
-import { Cell } from '../types/cell'
-import { Grid } from '../types/grid'
+import type { Cell } from '../types/cell'
+import type { Grid } from '../types/grid'
 
 type Condition = (cell: Cell) => boolean
 

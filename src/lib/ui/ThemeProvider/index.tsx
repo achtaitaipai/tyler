@@ -1,10 +1,10 @@
 import { useAtom } from 'jotai'
-import React from 'react'
-import { isDarkAtom } from '../../store/theme'
 import style from './style.module.css'
+import type { ReactNode } from 'react'
+import { isDarkAtom } from '../../store/theme'
 
-interface ThemeProviderProps {
-	children: React.ReactNode
+type ThemeProviderProps = {
+	children: ReactNode
 }
 
 function ThemeProvider({ children }: ThemeProviderProps) {

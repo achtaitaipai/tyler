@@ -1,6 +1,6 @@
 import { match } from 'ts-pattern'
-import { CanvasEvent } from '../../../../types/mouseEvents'
-import { Position } from '../../../../types/position'
+import type { CanvasEvent } from '../../../../types/mouseEvents'
+import type { Position } from '../../../../types/position'
 
 type Handle = (oldPosition: Position, newPosition: Position) => void
 type DefaultActions = (event: CanvasEvent) => void

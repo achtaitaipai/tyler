@@ -1,4 +1,4 @@
-import { Position } from '../types/position'
+import type { Position } from '../types/position'
 
 export function line(point0: Position, point1: Position) {
 	const points: Position[] = []

@@ -1,4 +1,6 @@
 import Canvas from '.'
 
-export const CanvasStorie = () => <Canvas />
+export function CanvasStorie() {
+  return <Canvas />
+}
 CanvasStorie.storyName = 'Canvas'
