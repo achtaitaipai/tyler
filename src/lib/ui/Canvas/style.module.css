@@ -1,11 +1,11 @@
 .wrapper {
+	background-color: var(--clr-neutral3);
 	border: 1px solid var(--clr-neutral6);
 	width: 500px;
 	height: 500px;
 	display: grid;
 	place-items: center;
 	overflow: hidden;
-	background-color: var(--clr-neutral3);
 	border-radius: 0.2rem;
 }
 

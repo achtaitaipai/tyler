@@ -1,6 +1,6 @@
 import SelectTool from '.'
 
 export function SelecttoolStorie() {
-  return <SelectTool />
+	return <SelectTool />
 }
 SelecttoolStorie.storyName = 'SelectTool'

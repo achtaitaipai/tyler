@@ -1,5 +1,5 @@
 import { useAtomValue, useSetAtom } from 'jotai'
-import type { RefObject} from 'react';
+import type { RefObject } from 'react'
 import { useCallback, useState } from 'react'
 import { match } from 'ts-pattern'
 import {

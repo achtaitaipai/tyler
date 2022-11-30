@@ -1,6 +1,6 @@
 import Canvas from '.'
 
 export function CanvasStorie() {
-  return <Canvas />
+	return <Canvas />
 }
 CanvasStorie.storyName = 'Canvas'
