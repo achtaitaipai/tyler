@@ -96,14 +96,14 @@ const useListenMouseEvents = (
 		}
 
 		document.addEventListener('pointermove', handleMove)
-		document.addEventListener('pointerdown', handleClick)
+		ref.current?.addEventListener('pointerdown', handleClick)
 		document.addEventListener('pointerup', handleUnclick)
 		ref.current?.addEventListener('contextmenu', handleContextMenu)
 		ref.current?.addEventListener('wheel', handleWheel)
 
 		return () => {
 			document.removeEventListener('pointermove', handleMove)
-			document.removeEventListener('pointerdown', handleClick)
+			ref.current?.removeEventListener('pointerdown', handleClick)
 			document.removeEventListener('pointerup', handleUnclick)
 			ref.current?.removeEventListener('contextmenu', handleContextMenu)
 			ref.current?.removeEventListener('wheel', handleWheel)
