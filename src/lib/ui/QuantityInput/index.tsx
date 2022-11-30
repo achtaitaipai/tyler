@@ -32,7 +32,7 @@ function QuantityInput({
 	}
 
 	function handleChange(e: ChangeEvent<HTMLInputElement>) {
-		const value = e.currentTarget?.valueAsNumber
+		const value = e.currentTarget.valueAsNumber
 		if (value && onChange) onChange(value)
 	}
 	return (

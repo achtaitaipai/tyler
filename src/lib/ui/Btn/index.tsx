@@ -1,4 +1,4 @@
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import { type InputHTMLAttributes, type PropsWithChildren } from 'react'
 import style from './style.module.css'
 
