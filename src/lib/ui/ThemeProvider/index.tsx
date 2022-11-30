@@ -1,14 +1,13 @@
-import { useAtom } from 'jotai'
-import style from './style.module.css'
 import type { ReactNode } from 'react'
-import { isDarkAtom } from '../../store/theme'
+import useIsDark from '../../hooks/useIsDark'
+import style from './style.module.css'
 
 type ThemeProviderProps = {
 	children: ReactNode
 }
 
 function ThemeProvider({ children }: ThemeProviderProps) {
-	const [isDark] = useAtom(isDarkAtom)
+	const [isDark] = useIsDark()
 	return (
 		<div
 			data-theme={isDark ? 'dark' : 'light'}

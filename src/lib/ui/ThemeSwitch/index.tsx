@@ -1,8 +1,11 @@
-import { useAtom } from 'jotai'
-import { toggleAtom } from '../../store/theme'
+import useIsDark from '../../hooks/useIsDark'
 import style from './style.module.css'
 export default function ThemeSwitch() {
-	const [, toogleIsDark] = useAtom(toggleAtom)
+	const [, toogleIsDark] = useIsDark()
+
+	const handleClick = () => {
+		toogleIsDark()
+	}
 
 	return (
 		<button
@@ -10,7 +13,7 @@ export default function ThemeSwitch() {
 			role="switch"
 			title="Activer le thème nuit"
 			className={style.btn}
-			onClick={() => toogleIsDark()}
+			onClick={handleClick}
 		>
 			<svg
 				aria-hidden="true"
