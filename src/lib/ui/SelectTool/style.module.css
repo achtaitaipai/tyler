@@ -1,15 +1,20 @@
 .wrapper {
-	/* border: 1px solid red; */
-	display: flex;
+	background-color: var(--clr-neutral3);
+	border: 1px solid var(--clr-neutral6);
+	display: inline-flex;
+	padding-block: 1rem;
+	padding-inline: 0.25rem;
+	border-radius: 1.2rem;
 	font-size: var(--font-size-5);
 	align-items: center;
 	gap: 1rem;
+	flex-direction: column;
 }
 
 .icon {
 	display: block;
 	color: var(--clr-neutral11);
-	padding: 0.4rem;
+	padding: 0.2rem;
 	border-radius: 0.2rem;
 	cursor: pointer;
 	/* color: red; */
@@ -22,6 +27,7 @@
 
 .iconChecked {
 	/* background-color: var(--clr-info10); */
-	outline: 2px solid var(--clr-neutral6);
+	background-color: var(--clr-neutral2);
+	outline: 1px solid var(--clr-neutral6);
 	color: var(--clr-neutral12);
 }
