@@ -1,0 +1,29 @@
+.wrapper {
+	display: grid;
+	align-content: flex-start;
+	/* grid-template-columns: repeat(4, 1fr); */
+	gap: 0.4rem;
+}
+
+.option {
+	cursor: pointer;
+	outline: 1px solid var(--clr-neutral6);
+	position: relative;
+}
+
+.option:hover {
+	outline: 1px solid var(--clr-neutral7);
+}
+
+.option:hover::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	background-color: var(--clr-brand9);
+	opacity: 0.2;
+}
+
+.option[aria-checked='true'] {
+	outline: 2px solid var(--clr-brand8);
+	z-index: 10;
+}

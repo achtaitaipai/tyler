@@ -10,7 +10,7 @@ import { clamp } from '../../helpers/math'
 import style from './style.module.css'
 
 type QuantityProps = {
-	onChange?: Dispatch<SetStateAction<number>>
+	onChange?: (n: number) => void
 	label?: string
 } & Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'>
 
@@ -28,7 +28,8 @@ function QuantityInput({
 	}
 	function incr(incr: number) {
 		if (!onChange) return
-		if (incr) onChange((n) => clamp(n + incr, Number(min), Number(max)))
+		if (incr)
+			onChange(clamp(Number(value ?? 0) + incr, Number(min), Number(max)))
 	}
 
 	function handleChange(e: ChangeEvent<HTMLInputElement>) {

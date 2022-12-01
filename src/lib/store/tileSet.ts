@@ -4,18 +4,47 @@ import tilesetUrl from '../../assets/tileset.png'
 import { charsMap } from '../../settings/charMap'
 import { loadImage } from '../helpers/image'
 
-export const tilesetImageAtom = atomWithStorage<HTMLImageElement>(
-	'tylerimg',
-	await loadImage(tilesetUrl)
-)
+export const tilesetImageAtom = atom(await loadImage(tilesetUrl))
 
-export const tilesetImageWidthAtom = atomWithStorage('tylerimgwidth', 32)
-export const tilesetImageHeightAtom = atomWithStorage('tylerimgheight', 32)
+export const tilesetImageWidthAtom = atom((get) => get(tilesetImageAtom).width)
+export const tilesetImageHeightAtom = atom(
+	(get) => get(tilesetImageAtom).height
+)
 
 export const charMapAtom = atomWithStorage('tylercharmap', charsMap)
 
-export const tilesetColumnsAtom = atomWithStorage('tylercols', 4)
-export const tilesetRowsAtom = atomWithStorage('tylerrowss', 4)
+const tilesetColumnsAtomBase = atomWithStorage('tylercols', 4)
+const tilesetRowsAtomBase = atomWithStorage('tylerrows', 4)
+
+export const tilesetColumnsAtom = atom(
+	(get) => get(tilesetColumnsAtomBase),
+	(get, set, value: number) => {
+		set(tilesetColumnsAtomBase, value)
+		const maxIndex = value * get(tilesetRowsAtom) - 1
+		set(
+			selectedTileIndexAtom,
+			Math.min(get(selectedTileIndexAtom), maxIndex)
+		)
+	}
+)
+
+export const tilesetRowsAtom = atom(
+	(get) => get(tilesetRowsAtomBase),
+	(get, set, value: number) => {
+		set(tilesetRowsAtomBase, value)
+		const maxIndex = value * get(tilesetColumnsAtom) - 1
+		set(
+			selectedTileIndexAtom,
+			Math.min(get(selectedTileIndexAtom), maxIndex)
+		)
+	}
+)
+
+export const selectedTileIndexAtom = atom(3)
+
+export const selectedTileCharAtom = atom(
+	(get) => get(charMapAtom)[get(selectedTileIndexAtom)]
+)
 
 export const tilesWidthAtom = atom(
 	(get) => get(tilesetImageWidthAtom) / get(tilesetColumnsAtom)
@@ -25,13 +54,9 @@ export const tilesHeightAtom = atom(
 	(get) => get(tilesetImageHeightAtom) / get(tilesetRowsAtom)
 )
 
-export const selectedTileIndexAtom = atom(3)
-export const selectedTileCharAtom = atom(
-	(get) => get(charMapAtom)[get(selectedTileIndexAtom)]
-)
-
 type Tile = null | [number, number, number, number]
 export const getTileFromCharAtom = atom((get) => (char: string): Tile => {
+	if (char === ' ') return null
 	const index = get(charMapAtom).findIndex((c) => c === char)
 	if (index === -1) return null
 	return get(getTileFromIndexAtom)(index)

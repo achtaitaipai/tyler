@@ -1,12 +1,17 @@
+import { useAtomValue } from 'jotai'
 import Tile from '.'
+import { selectedTileIndexAtom } from '../../store/tileSet'
 
-export const story = () => (
-	<div
-		style={{
-			width: '100px',
-		}}
-	>
-		<Tile position={[4, 1]} />
-	</div>
-)
+export const story = () => {
+	const tileIndex = useAtomValue(selectedTileIndexAtom)
+	return (
+		<div
+			style={{
+				width: '100px',
+			}}
+		>
+			<Tile position={tileIndex} />
+		</div>
+	)
+}
 story.storyName = 'Tile'

@@ -24,22 +24,28 @@ function Tile({ position }: TileProps) {
 				? position
 				: position[1] * width + position[0]
 		return getTile(tileIndex)
-	}, [position, width])
+	}, [position, width, height])
 
 	useEffect(() => {
 		const ctx = canvasRef.current?.getContext('2d')
 		if (!ctx || !tile) return
+		ctx.clearRect(0, 0, width, height)
+		for (let y = 0; y < height; y++) {
+			for (let x = 0; x < width; x++) {
+				ctx.fillStyle =
+					(x + y) % 2 === 0 ? 'hsl(0, 0%, 100%)' : 'hsl(0, 0%, 85%)'
+				ctx.fillRect(x, y, 1, 1)
+			}
+		}
 		ctx.drawImage(img, ...tile, 0, 0, width, height)
-	}, [canvasRef, tile])
+	}, [canvasRef, tile, img, width, height])
 	return (
-		<div className={style.wrapper}>
-			<canvas
-				className={style.canvas}
-				width={width}
-				height={height}
-				ref={canvasRef}
-			/>
-		</div>
+		<canvas
+			className={style.canvas}
+			width={width}
+			height={height}
+			ref={canvasRef}
+		/>
 	)
 }
 

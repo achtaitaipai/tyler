@@ -1,0 +1,24 @@
+.tilesetSettings {
+	border-top: 1px solid var(--clr-brand6);
+	font-size: 0.6rem;
+	display: flex;
+	align-items: center;
+	padding-inline: 0.5rem;
+	justify-content: space-around;
+}
+
+.btnUpload {
+	display: grid;
+	place-items: center;
+	font-size: inherit;
+	background-color: transparent;
+	border: 1px solid var(--clr-neutral6);
+	font-size: inherit;
+	color: var(--clr-neutral11);
+	cursor: pointer;
+}
+
+.btnUpload:hover {
+	border: 1px solid var(--clr-neutral8);
+	background-color: var(--clr-neutral3);
+}

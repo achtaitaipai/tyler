@@ -11,8 +11,8 @@
 
 .btn {
 	display: grid;
-	padding-inline: 0.2rem;
 	place-items: center;
+	padding-inline: 0.2rem;
 	background-color: var(--bg);
 	border: 1px solid var(--border);
 	height: 1.8rem;

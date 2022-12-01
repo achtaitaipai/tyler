@@ -1,4 +1,12 @@
 import Tileset from '.'
 
-export const tilesetStorie = () => <Tileset />
+export const tilesetStorie = () => (
+	<div
+		style={{
+			width: '500px',
+		}}
+	>
+		<Tileset />
+	</div>
+)
 tilesetStorie.storyName = 'Tileset'
