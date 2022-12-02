@@ -32,5 +32,6 @@ module.exports = {
 		'react/function-component-definition': 'warn',
 		'@typescript-eslint/consistent-type-definitions': ['error', 'type'],
 		'@typescript-eslint/consistent-type-imports': 'warn',
+		'no-console': 'warn',
 	},
 }
