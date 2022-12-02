@@ -1,11 +1,5 @@
 import { MinusIcon, PlusIcon } from '@radix-ui/react-icons'
-import {
-	type SetStateAction,
-	type Dispatch,
-	type InputHTMLAttributes,
-	type ChangeEvent,
-	useState,
-} from 'react'
+import { useState, type ChangeEvent, type InputHTMLAttributes } from 'react'
 import { clamp } from '../../helpers/math'
 import style from './style.module.css'
 
