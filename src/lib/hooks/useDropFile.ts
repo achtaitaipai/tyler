@@ -8,7 +8,6 @@ function useDropFileZone<T extends HTMLElement>(
 	useEffect(() => {
 		const handleDrop = (e: globalThis.DragEvent) => {
 			e.preventDefault()
-			console.log(e.dataTransfer?.items)
 			const items = e.dataTransfer?.items
 			if (!items) return
 			const files = [...items]

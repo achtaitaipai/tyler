@@ -18,6 +18,4 @@ if (root) {
 			</ThemeProvider>
 		</StrictMode>
 	)
-} else {
-	console.error('no root element')
 }

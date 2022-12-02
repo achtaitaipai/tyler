@@ -9,7 +9,6 @@ const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
 		function handleChange(e: ChangeEvent<HTMLInputElement>) {
 			if (!onUpload) return
 			const files = e.target.files
-			console.log(files)
 			if (files) {
 				const sources = [...files].map((file) =>
 					URL.createObjectURL(file)
