@@ -1,13 +1,14 @@
 import { Switch } from '@headlessui/react'
 import { clsx } from 'clsx'
-import { type PropsWithChildren, useState } from 'react'
+import { type PropsWithChildren } from 'react'
 import style from './style.module.css'
 
-type ToggleProps = PropsWithChildren
+type ToggleProps = PropsWithChildren<{
+	enabled: boolean
+	setEnabled: (value: boolean) => void
+}>
 
-function Toggle({ children }: ToggleProps) {
-	const [enabled, setEnabled] = useState(false)
-
+function Toggle({ enabled, setEnabled, children }: ToggleProps) {
 	return (
 		<Switch
 			checked={enabled}

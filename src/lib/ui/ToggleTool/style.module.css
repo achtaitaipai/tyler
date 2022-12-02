@@ -5,18 +5,23 @@
 	background-color: var(--clr-neutral3);
 	color: var(--clr-neutral11);
 	border: 0;
-	border-radius: 0.3rem;
 	font-size: inherit;
+	cursor: pointer;
+	border: 1px solid var(--clr-neutral6);
 }
 
 .toogle:hover:not(.checked) {
 	color: var(--clr-neutral12);
 	background-color: var(--clr-neutral4);
-	outline: 1px solid var(--clr-neutral7);
+	border: 1px solid var(--clr-neutral7);
 }
 
 .checked {
 	background-color: var(--clr-brand5);
 	color: var(--clr-brand11);
-	/* outline: 1px solid var(--clr-neutral8); */
+	border: 1px solid var(--clr-brand8);
+}
+
+.checked:hover {
+	background-color: var(--clr-brand4);
 }
