@@ -3,6 +3,7 @@ import {
 	BlendingModeIcon,
 	EraserIcon,
 	HandIcon,
+	LightningBoltIcon,
 	Pencil1Icon,
 	ZoomInIcon,
 	ZoomOutIcon,
@@ -20,6 +21,21 @@ export default function SelectTool() {
 				{({ checked }) => (
 					<span>
 						<Pencil1Icon
+							className={
+								style.icon +
+								' ' +
+								(checked ? style.iconChecked : '')
+							}
+							width={32}
+							height={32}
+						/>
+					</span>
+				)}
+			</RadioGroup.Option>
+			<RadioGroup.Option value="autotile">
+				{({ checked }) => (
+					<span>
+						<LightningBoltIcon
 							className={
 								style.icon +
 								' ' +

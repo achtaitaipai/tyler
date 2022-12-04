@@ -6,10 +6,11 @@
 	height: 500px;
 	grid-template-rows: 170px 1fr 1.8rem;
 	border-radius: 0.2rem;
+	background-color: var(--clr-neutral2);
 }
 
 .tileSettings {
-	background-color: var(--clr-neutral2);
+	background-color: var(--clr-neutral3);
 	border-bottom: 1px solid var(--clr-brand6);
 	display: grid;
 	place-items: center;
@@ -17,7 +18,7 @@
 
 .tileset {
 	position: relative;
-	background-color: var(--clr-neutral2);
+	background-color: var(--clr-neutral3);
 	padding-inline: 0.2rem;
 	padding-block: 0.3rem 0.4rem;
 	overflow-y: scroll;

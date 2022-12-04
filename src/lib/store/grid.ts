@@ -70,7 +70,7 @@ export const getCellAtom = atom((get) => (x: number, y: number) => {
 	return get(gridAtom)[y].charAt(x)
 })
 
-export const setCellAtom = atom(null, (get, set, cells: Cell | Cell[]) => {
+export const setCellsAtom = atom(null, (get, set, cells: Cell | Cell[]) => {
 	let clone = [...get(gridAtom)]
 	const points = Array.isArray(cells) ? cells : [cells]
 	points.forEach(({ x, y, value }) => {

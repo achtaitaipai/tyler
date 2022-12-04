@@ -2,16 +2,23 @@ import { useAtomValue, useSetAtom } from 'jotai'
 import type { RefObject } from 'react'
 import { useCallback, useState } from 'react'
 import { match } from 'ts-pattern'
+import { clamp } from '../../../helpers/math'
+import {
+	getGroupAtom,
+	getTileFromGroupAndValue,
+} from '../../../store/autotileGroup'
 import {
 	floodFillGridAtom,
+	gridAtom,
 	gridHeightAtom,
 	gridWidthAtom,
-	setCellAtom,
+	setCellsAtom,
 } from '../../../store/grid'
 import { selectedTileCharAtom } from '../../../store/tileSet'
 import { toolAtom } from '../../../store/tool'
 import type { CanvasEvent } from '../../../types/mouseEvents'
 import type { Position } from '../../../types/position'
+import { useAutotile } from './tools/useAutotile'
 import { useBucket } from './tools/useBucket'
 import { useDefaultActions } from './tools/useDefaultActions'
 import { useErase } from './tools/useErase'
@@ -23,7 +30,10 @@ import { useZoom } from './tools/useZoom'
 const useManageMouseEvents = (ref: RefObject<HTMLElement>) => {
 	const gridWidth = useAtomValue(gridWidthAtom)
 	const gridHeight = useAtomValue(gridHeightAtom)
-	const setCell = useSetAtom(setCellAtom)
+	const setCell = useSetAtom(setCellsAtom)
+	const setGrid = useSetAtom(gridAtom)
+	const getTileFromGroupandValue = useAtomValue(getTileFromGroupAndValue)
+	const getGroup = useAtomValue(getGroupAtom)
 	const floodFill = useAtomValue(floodFillGridAtom)
 	const tool = useAtomValue(toolAtom)
 	const currentTile = useAtomValue(selectedTileCharAtom)
@@ -41,8 +51,16 @@ const useManageMouseEvents = (ref: RefObject<HTMLElement>) => {
 	const gridPosition = useCallback(
 		(mousePosition: Position) => {
 			return {
-				x: Math.floor(mousePosition.x * gridWidth),
-				y: Math.floor(mousePosition.y * gridHeight),
+				x: clamp(
+					Math.floor(mousePosition.x * gridWidth),
+					0,
+					gridWidth - 1
+				),
+				y: clamp(
+					Math.floor(mousePosition.y * gridHeight),
+					0,
+					gridHeight - 1
+				),
 			}
 		},
 		[gridWidth, gridHeight]
@@ -74,13 +92,21 @@ const useManageMouseEvents = (ref: RefObject<HTMLElement>) => {
 	const zoom = useZoom(zoomCanvas, defaultActions)
 	const unzoom = useUnZoom(zoomCanvas, defaultActions)
 	const move = useMove(handleCanvas, defaultActions)
-	const paint = usePaint(gridPosition, setCell, currentTile, defaultActions)
+	const paint = usePaint(gridPosition, setGrid, currentTile, defaultActions)
 	const erase = useErase(gridPosition, setCell, defaultActions)
 	const bucket = useBucket(
 		floodFill,
 		gridPosition,
 		setCell,
 		currentTile,
+		defaultActions
+	)
+	const autotile = useAutotile(
+		gridPosition,
+		setGrid,
+		currentTile,
+		getGroup,
+		getTileFromGroupandValue,
 		defaultActions
 	)
 
@@ -92,6 +118,7 @@ const useManageMouseEvents = (ref: RefObject<HTMLElement>) => {
 			.with('paint', () => paint(event))
 			.with('erase', () => erase(event))
 			.with('bucket', () => bucket(event))
+			.with('autotile', () => autotile(event))
 			.exhaustive()
 	}
 

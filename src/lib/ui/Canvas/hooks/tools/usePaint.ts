@@ -1,6 +1,8 @@
+import { type SetStateAction } from 'jotai'
 import { match, P } from 'ts-pattern'
 import { line } from '../../../../helpers/line'
-import type { Cell } from '../../../../types/cell'
+import { type Cell } from '../../../../types/cell'
+import { type Grid } from '../../../../types/grid'
 import type { CanvasEvent } from '../../../../types/mouseEvents'
 import type { Position } from '../../../../types/position'
 
@@ -9,15 +11,24 @@ type GridPosition = (mousePosition: Position) => {
 	y: number
 }
 
-type SetCell = (cells: Cell | Cell[]) => void
+type SetGrid = (update: SetStateAction<Grid>) => void
 type DefaultActions = (event: CanvasEvent) => void
 
 const usePaint = (
 	gridPosition: GridPosition,
-	setCell: SetCell,
+	setGrid: SetGrid,
 	currentTile: string,
 	defaultActions: DefaultActions
 ) => {
+	function setCells(grid: Grid, ...cells: Cell[]) {
+		const clone = [...grid]
+		cells.forEach(({ x, y, value }) => {
+			const line = clone[y]
+			clone[y] = line.substring(0, x) + value + line.substring(x + 1)
+		})
+		return clone
+	}
+
 	return function paint(event: CanvasEvent) {
 		match(event)
 			.with({ type: 'click', data: { button: P.not(1) } }, (payload) => {
@@ -25,7 +36,8 @@ const usePaint = (
 				const { x, y } = gridPosition(mousePosition)
 				let value = currentTile
 				if (button === 2) value = ' '
-				setCell({ x, y, value })
+				// setCell({ x, y, value })
+				setGrid((grid) => setCells(grid, { x, y, value }))
 			})
 			.with({ type: 'drag', data: { button: P.not(1) } }, (payload) => {
 				const { oldMousePosition, mousePosition, button } = payload.data
@@ -38,7 +50,7 @@ const usePaint = (
 					y: p.y,
 					value,
 				}))
-				setCell(points)
+				setGrid((grid) => setCells(grid, ...points))
 			})
 			.otherwise(defaultActions)
 	}

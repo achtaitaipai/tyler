@@ -10,7 +10,10 @@ import {
 	autotileValueFromBool,
 	boolsFromAutoTileValue,
 } from '../../../helpers/autotile'
-import { autoTileValueAtom, autoTileValuesAtom } from '../../../store/autotile'
+import {
+	autoTileValueAtom,
+	autoTileValuesAtom,
+} from '../../../store/autotileSettings'
 import {
 	autotileGroupAtom,
 	setAutotileGroupAtom,
