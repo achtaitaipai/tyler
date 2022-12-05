@@ -10,6 +10,7 @@ import {
 } from '../../store/grid'
 import Btn from '../Btn'
 import Canvas from '../Canvas'
+import Tooltip from '../Tooltip'
 import style from './style.module.css'
 
 function DrawingSection() {
@@ -22,36 +23,55 @@ function DrawingSection() {
 	return (
 		<div className={style.wrapper}>
 			<div className={style.row}>
-				<Btn onClick={() => insertRow(0)} type="Icon">
-					<PlusIcon />
-				</Btn>
-				<Btn onClick={() => removeRow(0)} type="Icon">
-					<MinusIcon />
-				</Btn>
+				<Tooltip position="Top" tip="insert a row">
+					<Btn onClick={() => insertRow(0)} type="Icon">
+						<PlusIcon />
+					</Btn>
+				</Tooltip>
+				<Tooltip tip="remove a row" position="Top">
+					<Btn onClick={() => removeRow(0)} type="Icon">
+						<MinusIcon />
+					</Btn>
+				</Tooltip>
 			</div>
 			<div className={style.row}>
-				<Btn onClick={() => insertRow(gridHeight)} type="Icon">
-					<PlusIcon />
-				</Btn>
-				<Btn onClick={() => removeRow(gridHeight - 1)} type="Icon">
-					<MinusIcon />
-				</Btn>
+				<Tooltip tip="insert a row" position="Bottom">
+					<Btn onClick={() => insertRow(gridHeight)} type="Icon">
+						<PlusIcon />
+					</Btn>
+				</Tooltip>
+				<Tooltip tip="remove a row" position="Bottom">
+					<Btn onClick={() => removeRow(gridHeight - 1)} type="Icon">
+						<MinusIcon />
+					</Btn>
+				</Tooltip>
 			</div>
 			<div className={style.column}>
-				<Btn onClick={() => insertColumn(0)} type="Icon">
-					<PlusIcon />
-				</Btn>
-				<Btn onClick={() => removeColumn(0)} type="Icon">
-					<MinusIcon />
-				</Btn>
+				<Tooltip tip="insert a column" position="Left">
+					<Btn onClick={() => insertColumn(0)} type="Icon">
+						<PlusIcon />
+					</Btn>
+				</Tooltip>
+				<Tooltip tip="remove a column" position="Left">
+					<Btn onClick={() => removeColumn(0)} type="Icon">
+						<MinusIcon />
+					</Btn>
+				</Tooltip>
 			</div>
 			<div className={style.column}>
-				<Btn onClick={() => insertColumn(gridWidth)} type="Icon">
-					<PlusIcon />
-				</Btn>
-				<Btn onClick={() => removeColumn(gridWidth - 1)} type="Icon">
-					<MinusIcon />
-				</Btn>
+				<Tooltip tip="insert a column" position="Right">
+					<Btn onClick={() => insertColumn(gridWidth)} type="Icon">
+						<PlusIcon />
+					</Btn>
+				</Tooltip>
+				<Tooltip tip="remove a column" position="Right">
+					<Btn
+						onClick={() => removeColumn(gridWidth - 1)}
+						type="Icon"
+					>
+						<MinusIcon />
+					</Btn>
+				</Tooltip>
 			</div>
 			<Canvas />
 		</div>

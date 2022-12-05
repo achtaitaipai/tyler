@@ -23,6 +23,7 @@ import Select from '../../Select'
 import Tile from '../../Tile'
 import Toggle from '../../ToggleTool'
 import style from './style.module.css'
+import Tooltip from '../../Tooltip'
 
 function TileSettings() {
 	const selectedTile = useAtomValue(selectedTileIndexAtom)
@@ -54,54 +55,65 @@ function TileSettings() {
 			</div>
 			<div className={style.settings}>
 				<div className={style.toggles}>
-					<Toggle
-						enabled={bools[3]}
-						setEnabled={(value) => onChange(3, value)}
-					>
-						<BorderTopIcon />
-					</Toggle>
-					<Toggle
-						enabled={bools[2]}
-						setEnabled={(value) => onChange(2, value)}
-					>
-						<BorderRightIcon />
-					</Toggle>
-					<Toggle
-						enabled={bools[1]}
-						setEnabled={(value) => onChange(1, value)}
-					>
-						<BorderBottomIcon />
-					</Toggle>
-					<Toggle
-						enabled={bools[0]}
-						setEnabled={(value) => onChange(0, value)}
-					>
-						<BorderLeftIcon />
-					</Toggle>
+					<Tooltip tip="top" position="Top">
+						<Toggle
+							enabled={bools[3]}
+							setEnabled={(value) => onChange(3, value)}
+						>
+							<BorderTopIcon />
+						</Toggle>
+					</Tooltip>
+
+					<Tooltip tip="right" position="Top">
+						<Toggle
+							enabled={bools[2]}
+							setEnabled={(value) => onChange(2, value)}
+						>
+							<BorderRightIcon />
+						</Toggle>
+					</Tooltip>
+					<Tooltip tip="bottom" position="Top">
+						<Toggle
+							enabled={bools[1]}
+							setEnabled={(value) => onChange(1, value)}
+						>
+							<BorderBottomIcon />
+						</Toggle>
+					</Tooltip>
+					<Tooltip tip="left" position="Top">
+						<Toggle
+							enabled={bools[0]}
+							setEnabled={(value) => onChange(0, value)}
+						>
+							<BorderLeftIcon />
+						</Toggle>
+					</Tooltip>
 				</div>
 				<label className={style.label}>
 					Group :{' '}
-					<Select
-						options={[
-							'0',
-							'1',
-							'2',
-							'3',
-							'4',
-							'5',
-							'6',
-							'7',
-							'8',
-							'9',
-						]}
-						selected={group}
-						onChange={(selected) => {
-							setGroup({
-								index: selectedTile,
-								value: Number(selected),
-							})
-						}}
-					/>
+					<Tooltip tip="autotile group" position="Top">
+						<Select
+							options={[
+								'0',
+								'1',
+								'2',
+								'3',
+								'4',
+								'5',
+								'6',
+								'7',
+								'8',
+								'9',
+							]}
+							selected={group}
+							onChange={(selected) => {
+								setGroup({
+									index: selectedTile,
+									value: Number(selected),
+								})
+							}}
+						/>
+					</Tooltip>
 				</label>
 			</div>
 		</div>

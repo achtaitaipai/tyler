@@ -4,6 +4,7 @@ import { useRef } from 'react'
 import { tilesetColumnsAtom, tilesetRowsAtom } from '../../../store/tileSet'
 import FileInput from '../../FileInput'
 import QuantityInput from '../../QuantityInput'
+import Tooltip from '../../Tooltip'
 import style from './style.module.css'
 
 type TileSetSettingsProps = {
@@ -17,20 +18,22 @@ function TileSetSettings({ handleUpload }: TileSetSettingsProps) {
 
 	return (
 		<div className={style.tilesetSettings}>
-			<button
-				className={style.btnUpload}
-				onClick={() => ref.current?.click()}
-			>
-				<UploadIcon />
-			</button>
-			<FileInput
-				accept="image/png, image/jpeg"
-				multiple={false}
-				ref={ref}
-				onUpload={(sources) => {
-					handleUpload(sources)
-				}}
-			/>
+			<Tooltip position="Bottom" tip="upload tileset">
+				<button
+					className={style.btnUpload}
+					onClick={() => ref.current?.click()}
+				>
+					<UploadIcon />
+				</button>
+				<FileInput
+					accept="image/png, image/jpeg"
+					multiple={false}
+					ref={ref}
+					onUpload={(sources) => {
+						handleUpload(sources)
+					}}
+				/>
+			</Tooltip>
 			<QuantityInput
 				label="Columns :"
 				value={columns}

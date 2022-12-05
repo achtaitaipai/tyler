@@ -10,6 +10,7 @@ import {
 } from '@radix-ui/react-icons'
 import { useAtom } from 'jotai'
 import { toolAtom } from '../../store/tool'
+import Tooltip from '../Tooltip'
 import style from './style.module.css'
 
 export default function SelectTool() {
@@ -19,7 +20,7 @@ export default function SelectTool() {
 		<RadioGroup value={plan} onChange={setPlan} className={style.wrapper}>
 			<RadioGroup.Option value="paint">
 				{({ checked }) => (
-					<span>
+					<Tooltip tip="paint" position="Bottom">
 						<Pencil1Icon
 							className={
 								style.icon +
@@ -29,12 +30,12 @@ export default function SelectTool() {
 							width={32}
 							height={32}
 						/>
-					</span>
+					</Tooltip>
 				)}
 			</RadioGroup.Option>
 			<RadioGroup.Option value="autotile">
 				{({ checked }) => (
-					<span>
+					<Tooltip tip="autotile" position="Bottom">
 						<LightningBoltIcon
 							className={
 								style.icon +
@@ -44,12 +45,12 @@ export default function SelectTool() {
 							width={32}
 							height={32}
 						/>
-					</span>
+					</Tooltip>
 				)}
 			</RadioGroup.Option>
 			<RadioGroup.Option value="erase">
 				{({ checked }) => (
-					<span>
+					<Tooltip tip="erase" position="Bottom">
 						<EraserIcon
 							className={
 								style.icon +
@@ -59,12 +60,12 @@ export default function SelectTool() {
 							width={32}
 							height={32}
 						/>
-					</span>
+					</Tooltip>
 				)}
 			</RadioGroup.Option>
 			<RadioGroup.Option value="bucket">
 				{({ checked }) => (
-					<span>
+					<Tooltip tip="bucket" position="Bottom">
 						<BlendingModeIcon
 							className={
 								style.icon +
@@ -74,12 +75,12 @@ export default function SelectTool() {
 							width={32}
 							height={32}
 						/>
-					</span>
+					</Tooltip>
 				)}
 			</RadioGroup.Option>
 			{/* <RadioGroup.Option value="auto">
 				{({ checked }) => (
-					<span>
+					<Tooltip>
 						<StarIcon
 							className={
 								style.icon +
@@ -89,12 +90,12 @@ export default function SelectTool() {
 							width={32}
 							height={32}
 						/>
-					</span>
+					</Tooltip>
 				)}
 			</RadioGroup.Option> */}
 			<RadioGroup.Option value="zoom">
 				{({ checked }) => (
-					<span>
+					<Tooltip tip="zoom" position="Bottom">
 						<ZoomInIcon
 							className={
 								style.icon +
@@ -104,12 +105,12 @@ export default function SelectTool() {
 							width={32}
 							height={32}
 						/>
-					</span>
+					</Tooltip>
 				)}
 			</RadioGroup.Option>
 			<RadioGroup.Option value="unzoom">
 				{({ checked }) => (
-					<span>
+					<Tooltip tip="unzoom" position="Bottom">
 						<ZoomOutIcon
 							className={
 								style.icon +
@@ -119,12 +120,12 @@ export default function SelectTool() {
 							width={32}
 							height={32}
 						/>
-					</span>
+					</Tooltip>
 				)}
 			</RadioGroup.Option>
 			<RadioGroup.Option value="move">
 				{({ checked }) => (
-					<span>
+					<Tooltip tip="move" position="Bottom">
 						<HandIcon
 							className={
 								style.icon +
@@ -134,7 +135,7 @@ export default function SelectTool() {
 							width={32}
 							height={32}
 						/>
-					</span>
+					</Tooltip>
 				)}
 			</RadioGroup.Option>
 		</RadioGroup>

@@ -13,7 +13,7 @@ function Tooltip({ children, tip, position = 'Right' }: TooltipProps) {
 	return (
 		<div className={style.wrapper}>
 			{children}
-			<span
+			<div
 				className={clsx(
 					style.tip,
 					position === 'Bottom' && style.bottom,
@@ -23,7 +23,7 @@ function Tooltip({ children, tip, position = 'Right' }: TooltipProps) {
 				)}
 			>
 				{tip}
-			</span>
+			</div>
 		</div>
 	)
 }
