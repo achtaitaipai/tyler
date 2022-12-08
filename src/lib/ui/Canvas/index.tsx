@@ -20,6 +20,13 @@ function Canvas() {
 		const ctx = canvasRef.current?.getContext('2d')
 		if (!ctx) return
 		ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+		for (let y = 0; y < height; y++) {
+			for (let x = 0; x < width; x++) {
+				ctx.fillStyle =
+					(x + y) % 2 === 0 ? 'hsl(0, 0%, 100%)' : 'hsl(0, 0%, 85%)'
+				ctx.fillRect(x, y, 1, 1)
+			}
+		}
 		getCells.forEach((tile) => {
 			if (tile !== null) ctx.drawImage(...tile)
 		})

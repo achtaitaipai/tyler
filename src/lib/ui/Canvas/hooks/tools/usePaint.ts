@@ -1,7 +1,6 @@
-import { useSetAtom, type SetStateAction } from 'jotai'
+import { type SetStateAction } from 'jotai'
 import { match, P } from 'ts-pattern'
 import { line } from '../../../../helpers/line'
-import { historyPushAtom } from '../../../../store/history/index.ts'
 import { type Cell } from '../../../../types/cell'
 import { type Grid } from '../../../../types/grid'
 import type { CanvasEvent } from '../../../../types/mouseEvents'

@@ -1,7 +1,7 @@
 import { ResetIcon } from '@radix-ui/react-icons'
 import { useSetAtom } from 'jotai'
 import { redoAtom, undoAtom } from '../../store/history/index.ts'
-import clsx from 'clsx'
+import { clsx } from 'clsx'
 import style from './style.module.css'
 
 function HistoryNav() {
