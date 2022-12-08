@@ -1,7 +1,8 @@
-import { type SetStateAction } from 'jotai'
+import { useSetAtom, type SetStateAction } from 'jotai'
 import { match, P } from 'ts-pattern'
 import { autotileValueFromBool } from '../../../../helpers/autotile'
 import { line } from '../../../../helpers/line'
+import { historyPushAtom } from '../../../../store/history/historypush'
 import type { Cell } from '../../../../types/cell'
 import { type Grid } from '../../../../types/grid'
 import type { CanvasEvent } from '../../../../types/mouseEvents'
@@ -26,7 +27,8 @@ const useAutotile = (
 	currentTile: string,
 	getGroup: GetGroup,
 	getTileFromGroupAndValue: GetTileFromGroupandValue,
-	defaultActions: DefaultActions
+	defaultActions: DefaultActions,
+	historyPush: () => void
 ) => {
 	function setCellsWithAutotiling(grid: Grid, cells: Cell[]) {
 		return cells.reduce(
@@ -107,6 +109,8 @@ const useAutotile = (
 				const { mousePosition, button } = payload.data
 				const position = gridPosition(mousePosition)
 				const value = button === 2 ? ' ' : currentTile
+				historyPush()
+				historyPush()
 				setGrid((grid) =>
 					setCellWithAutotiling(grid, { ...position, value })
 				)
@@ -117,6 +121,7 @@ const useAutotile = (
 				const point1 = gridPosition(mousePosition)
 				const value = button === 2 ? ' ' : currentTile
 				const cells = line(point0, point1).map((c) => ({ ...c, value }))
+				historyPush()
 				setGrid((grid) => setCellsWithAutotiling(grid, cells))
 			})
 			.otherwise(defaultActions)

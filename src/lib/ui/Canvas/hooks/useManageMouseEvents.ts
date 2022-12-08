@@ -14,6 +14,7 @@ import {
 	gridWidthAtom,
 	setCellsAtom,
 } from '../../../store/grid'
+import { historyPushAtom } from '../../../store/history/index.ts'
 import { selectedTileCharAtom } from '../../../store/tileSet'
 import { toolAtom } from '../../../store/tool'
 import type { CanvasEvent } from '../../../types/mouseEvents'
@@ -39,6 +40,8 @@ const useManageMouseEvents = (ref: RefObject<HTMLElement>) => {
 	const currentTile = useAtomValue(selectedTileCharAtom)
 	const [translate, setTranslate] = useState({ x: 0, y: 0 })
 	const [scale, setScale] = useState(1)
+	const historyPush = useSetAtom(historyPushAtom)
+
 	const handleCanvas = (oldPosition: Position, newPosition: Position) => {
 		const tx = newPosition.x - oldPosition.x
 		const ty = newPosition.y - oldPosition.y
@@ -92,14 +95,21 @@ const useManageMouseEvents = (ref: RefObject<HTMLElement>) => {
 	const zoom = useZoom(zoomCanvas, defaultActions)
 	const unzoom = useUnZoom(zoomCanvas, defaultActions)
 	const move = useMove(handleCanvas, defaultActions)
-	const paint = usePaint(gridPosition, setGrid, currentTile, defaultActions)
-	const erase = useErase(gridPosition, setCell, defaultActions)
+	const paint = usePaint(
+		gridPosition,
+		setGrid,
+		currentTile,
+		defaultActions,
+		historyPush
+	)
+	const erase = useErase(gridPosition, setCell, defaultActions, historyPush)
 	const bucket = useBucket(
 		floodFill,
 		gridPosition,
 		setCell,
 		currentTile,
-		defaultActions
+		defaultActions,
+		historyPush
 	)
 	const autotile = useAutotile(
 		gridPosition,
@@ -107,7 +117,8 @@ const useManageMouseEvents = (ref: RefObject<HTMLElement>) => {
 		currentTile,
 		getGroup,
 		getTileFromGroupandValue,
-		defaultActions
+		defaultActions,
+		historyPush
 	)
 
 	const manageEvents = (event: CanvasEvent) => {

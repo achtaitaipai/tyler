@@ -1,6 +1,7 @@
-import { type SetStateAction } from 'jotai'
+import { useSetAtom, type SetStateAction } from 'jotai'
 import { match, P } from 'ts-pattern'
 import { line } from '../../../../helpers/line'
+import { historyPushAtom } from '../../../../store/history/index.ts'
 import { type Cell } from '../../../../types/cell'
 import { type Grid } from '../../../../types/grid'
 import type { CanvasEvent } from '../../../../types/mouseEvents'
@@ -18,7 +19,8 @@ const usePaint = (
 	gridPosition: GridPosition,
 	setGrid: SetGrid,
 	currentTile: string,
-	defaultActions: DefaultActions
+	defaultActions: DefaultActions,
+	historyPush: () => void
 ) => {
 	function setCells(grid: Grid, ...cells: Cell[]) {
 		const clone = [...grid]
@@ -36,7 +38,7 @@ const usePaint = (
 				const { x, y } = gridPosition(mousePosition)
 				let value = currentTile
 				if (button === 2) value = ' '
-				// setCell({ x, y, value })
+				historyPush()
 				setGrid((grid) => setCells(grid, { x, y, value }))
 			})
 			.with({ type: 'drag', data: { button: P.not(1) } }, (payload) => {
@@ -50,6 +52,7 @@ const usePaint = (
 					y: p.y,
 					value,
 				}))
+				historyPush()
 				setGrid((grid) => setCells(grid, ...points))
 			})
 			.otherwise(defaultActions)

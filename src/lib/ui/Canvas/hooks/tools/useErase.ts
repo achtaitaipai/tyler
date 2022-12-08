@@ -15,13 +15,15 @@ type DefaultActions = (event: CanvasEvent) => void
 const useErase = (
 	gridPosition: GridPosition,
 	setCell: SetCell,
-	defaultActions: DefaultActions
+	defaultActions: DefaultActions,
+	historyPush: () => void
 ) => {
 	return function (event: CanvasEvent) {
 		match(event)
 			.with({ type: 'click', data: { button: P.not(1) } }, (payload) => {
 				const { mousePosition } = payload.data
 				const { x, y } = gridPosition(mousePosition)
+				historyPush()
 				setCell({ x, y, value: ' ' })
 			})
 			.with({ type: 'drag', data: { button: P.not(1) } }, (payload) => {
@@ -32,6 +34,7 @@ const useErase = (
 					...p,
 					value: ' ',
 				}))
+				historyPush()
 				setCell(points)
 			})
 			.otherwise(defaultActions)

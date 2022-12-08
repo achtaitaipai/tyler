@@ -17,7 +17,8 @@ const useBucket = (
 	gridPosition: GridPosition,
 	setCell: SetCell,
 	currentTile: string,
-	defaultActions: DefaultActions
+	defaultActions: DefaultActions,
+	historyPush: () => void
 ) => {
 	return function (event: CanvasEvent) {
 		match(event)
@@ -29,7 +30,10 @@ const useBucket = (
 					...c,
 					value,
 				}))
-				if (cells) setCell(cells)
+				if (cells) {
+					historyPush()
+					setCell(cells)
+				}
 			})
 			.otherwise(defaultActions)
 	}
