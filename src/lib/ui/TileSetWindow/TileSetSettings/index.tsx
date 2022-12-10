@@ -18,10 +18,15 @@ function TileSetSettings({ handleUpload }: TileSetSettingsProps) {
 
 	return (
 		<div className={style.tilesetSettings}>
-			<Tooltip position="Bottom" tip="upload tileset">
+			<Tooltip
+				position="Bottom"
+				tip="upload tileset"
+				htmlFor="uploadTileSet"
+			>
 				<button
 					className={style.btnUpload}
 					onClick={() => ref.current?.click()}
+					id="uploadTileSet"
 				>
 					<UploadIcon />
 				</button>

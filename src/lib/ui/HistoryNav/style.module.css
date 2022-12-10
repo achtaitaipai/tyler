@@ -1,10 +1,9 @@
 .wrapper {
 	display: inline-flex;
-	border-radius: 0.2rem;
-	overflow: hidden;
-	outline: 1px solid var(--clr-neutral6);
-	background-color: var(--clr-neutral7);
-	gap: 1px;
+	/* overflow: hidden; */
+	/* outline: 1px solid var(--clr-neutral6); */
+	/* background-color: var(--clr-neutral7); */
+	/* gap: 1px; */
 }
 
 .btn {
@@ -25,11 +24,23 @@
 	background-color: var(--bg);
 	height: 1.8rem;
 	min-width: 1.8rem;
-	border: 0;
 	color: var(--color);
 	font-weight: 700;
 	display: grid;
 	cursor: pointer;
+	border: 1px solid var(--clr-neutral6);
+}
+
+.btn:first-child {
+	border-top-left-radius: 0.2rem;
+	border-bottom-left-radius: 0.2rem;
+	/* border-right: 0; */
+}
+
+.btn:last-child {
+	border-top-right-radius: 0.2rem;
+	border-bottom-right-radius: 0.2rem;
+	border-left: 0;
 }
 
 .flip {

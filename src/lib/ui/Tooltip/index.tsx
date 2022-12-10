@@ -7,13 +7,14 @@ type Position = 'Left' | 'Top' | 'Bottom' | 'Right'
 type TooltipProps = PropsWithChildren<{
 	tip: string
 	position?: Position
+	htmlFor?: string
 }>
 
-function Tooltip({ children, tip, position = 'Right' }: TooltipProps) {
+function Tooltip({ children, tip, position = 'Right', htmlFor }: TooltipProps) {
 	return (
 		<div className={style.wrapper}>
 			{children}
-			<div
+			<label
 				className={clsx(
 					style.tip,
 					position === 'Bottom' && style.bottom,
@@ -21,9 +22,10 @@ function Tooltip({ children, tip, position = 'Right' }: TooltipProps) {
 					position === 'Right' && style.right,
 					position === 'Left' && style.left
 				)}
+				htmlFor={htmlFor}
 			>
 				{tip}
-			</div>
+			</label>
 		</div>
 	)
 }

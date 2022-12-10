@@ -18,6 +18,7 @@
 	pointer-events: none;
 	white-space: nowrap;
 	display: inline-block;
+	z-index: 1;
 }
 
 .wrapper:hover .tip {

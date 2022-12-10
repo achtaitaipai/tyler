@@ -55,43 +55,47 @@ function TileSettings() {
 			</div>
 			<div className={style.settings}>
 				<div className={style.toggles}>
-					<Tooltip tip="top" position="Top">
+					<Tooltip tip="top" position="Top" htmlFor="topToogle">
 						<Toggle
 							enabled={bools[3]}
 							setEnabled={(value) => onChange(3, value)}
 						>
-							<BorderTopIcon />
+							<BorderTopIcon id="topToogle" />
 						</Toggle>
 					</Tooltip>
 
-					<Tooltip tip="right" position="Top">
+					<Tooltip tip="right" position="Top" htmlFor="rightToogle">
 						<Toggle
 							enabled={bools[2]}
 							setEnabled={(value) => onChange(2, value)}
 						>
-							<BorderRightIcon />
+							<BorderRightIcon id="rightToogle" />
 						</Toggle>
 					</Tooltip>
-					<Tooltip tip="bottom" position="Top">
+					<Tooltip tip="bottom" position="Top" htmlFor="bottomToogle">
 						<Toggle
 							enabled={bools[1]}
 							setEnabled={(value) => onChange(1, value)}
 						>
-							<BorderBottomIcon />
+							<BorderBottomIcon id="bottomToogle" />
 						</Toggle>
 					</Tooltip>
-					<Tooltip tip="left" position="Top">
+					<Tooltip tip="left" position="Top" htmlFor="leftToogle">
 						<Toggle
 							enabled={bools[0]}
 							setEnabled={(value) => onChange(0, value)}
 						>
-							<BorderLeftIcon />
+							<BorderLeftIcon id="leftToogle" />
 						</Toggle>
 					</Tooltip>
 				</div>
 				<label className={style.label}>
 					Group :{' '}
-					<Tooltip tip="autotile group" position="Top">
+					<Tooltip
+						tip="autotile group"
+						position="Top"
+						htmlFor="autotileGroupSelect"
+					>
 						<Select
 							options={[
 								'0',
@@ -112,6 +116,7 @@ function TileSettings() {
 									value: Number(selected),
 								})
 							}}
+							id="autotileGroupSelect"
 						/>
 					</Tooltip>
 				</label>

@@ -8,11 +8,12 @@ type SelectProps = {
 	options: Option[]
 	selected: string
 	onChange: (str: string) => void
+	id?: string
 }
 
-function Select({ options, selected, onChange }: SelectProps) {
+function Select({ options, selected, onChange, id }: SelectProps) {
 	return (
-		<div className={style.wrapper}>
+		<div className={style.wrapper} id={id}>
 			<Listbox value={selected} onChange={onChange}>
 				<Listbox.Button className={style.btn}>
 					<span className={style.btnContent}>{selected}</span>

@@ -28,96 +28,136 @@ function DrawingSection() {
 		<>
 			<div className={style.wrapper}>
 				<div className={style.row}>
-					<Tooltip position="Top" tip="insert a row">
+					<Tooltip
+						position="Top"
+						tip="insert a row"
+						htmlFor="addFirstRow"
+					>
 						<Btn
 							onClick={() => {
 								historyPush()
 								insertRow(0)
 							}}
 							type="Icon"
+							id="addFirstRow"
 						>
 							<PlusIcon />
 						</Btn>
 					</Tooltip>
-					<Tooltip tip="remove a row" position="Top">
+					<Tooltip
+						tip="remove a row"
+						position="Top"
+						htmlFor="removeFirstRow"
+					>
 						<Btn
 							onClick={() => {
 								historyPush()
 								removeRow(0)
 							}}
 							type="Icon"
+							id="removeFirstRow"
 						>
 							<MinusIcon />
 						</Btn>
 					</Tooltip>
 				</div>
 				<div className={style.row}>
-					<Tooltip tip="insert a row" position="Bottom">
+					<Tooltip
+						tip="insert a row"
+						position="Bottom"
+						htmlFor="addLastRow"
+					>
 						<Btn
 							onClick={() => {
 								historyPush()
 								insertRow(gridHeight)
 							}}
 							type="Icon"
+							id="addLastRow"
 						>
 							<PlusIcon />
 						</Btn>
 					</Tooltip>
-					<Tooltip tip="remove a row" position="Bottom">
+					<Tooltip
+						tip="remove a row"
+						position="Bottom"
+						htmlFor="removeLastRow"
+					>
 						<Btn
 							onClick={() => {
 								historyPush()
 								removeRow(gridHeight - 1)
 							}}
 							type="Icon"
+							id="removeLastRow"
 						>
 							<MinusIcon />
 						</Btn>
 					</Tooltip>
 				</div>
 				<div className={style.column}>
-					<Tooltip tip="insert a column" position="Left">
+					<Tooltip
+						tip="insert a column"
+						position="Left"
+						htmlFor="insertFirstColumn"
+					>
 						<Btn
 							onClick={() => {
 								historyPush()
 								insertColumn(0)
 							}}
 							type="Icon"
+							id="insertFirstColumn"
 						>
 							<PlusIcon />
 						</Btn>
 					</Tooltip>
-					<Tooltip tip="remove a column" position="Left">
+					<Tooltip
+						tip="remove a column"
+						position="Left"
+						htmlFor="removeFirstColumn"
+					>
 						<Btn
 							onClick={() => {
 								historyPush()
 								removeColumn(0)
 							}}
 							type="Icon"
+							id="removeFirstColumn"
 						>
 							<MinusIcon />
 						</Btn>
 					</Tooltip>
 				</div>
 				<div className={style.column}>
-					<Tooltip tip="insert a column" position="Right">
+					<Tooltip
+						tip="insert a column"
+						position="Right"
+						htmlFor="insertLastColumn"
+					>
 						<Btn
 							onClick={() => {
 								historyPush()
 								insertColumn(gridWidth)
 							}}
 							type="Icon"
+							id="insertLastColumn"
 						>
 							<PlusIcon />
 						</Btn>
 					</Tooltip>
-					<Tooltip tip="remove a column" position="Right">
+					<Tooltip
+						tip="remove a column"
+						position="Right"
+						htmlFor="removeLastColumn"
+					>
 						<Btn
 							onClick={() => {
 								historyPush()
 								removeColumn(gridWidth - 1)
 							}}
 							type="Icon"
+							id="removeLastColumn"
 						>
 							<MinusIcon />
 						</Btn>
