@@ -1,0 +1,17 @@
+.button {
+	width: 1.25rem;
+	height: auto;
+	aspect-ratio: 1;
+	border-radius: 0.2rem;
+	border: 1px solid var(--clr-neutral6);
+	cursor: pointer;
+}
+.wrapper {
+	position: relative;
+}
+
+.inputWrapper {
+	width: fit-content;
+	position: absolute;
+	left: -0.4rem;
+}
