@@ -10,7 +10,6 @@ specifiers:
   '@types/react-dom': ^18.0.8
   '@typescript-eslint/eslint-plugin': ^5.44.0
   '@typescript-eslint/parser': ^5.44.0
-  '@uiw/react-color': ^1.1.1
   '@uiw/react-color-chrome': ^1.1.1
   '@vitejs/plugin-react': ^2.2.0
   clsx: ^1.2.1
@@ -25,26 +24,24 @@ specifiers:
   open-props: ^1.5.0
   prettier: ^2.8.0
   react: ^18.2.0
-  react-color: ^2.19.3
   react-dom: ^18.2.0
   react-toastify: ^9.1.1
   ts-pattern: ^4.0.6
   tsx: ^3.12.1
   typescript: ^4.6.4
   vite: ^3.2.3
+  vite-plugin-top-level-await: ^1.2.2
   zod: ^3.20.0
 
 dependencies:
   '@fontsource/lato': 4.5.10
   '@headlessui/react': 1.7.4_biqbaboplfbrettd7655fr4n2y
   '@radix-ui/react-icons': 1.1.1_react@18.2.0
-  '@uiw/react-color': 1.1.1_biqbaboplfbrettd7655fr4n2y
   '@uiw/react-color-chrome': 1.1.1_biqbaboplfbrettd7655fr4n2y
   clsx: 1.2.1
   jotai: 1.10.0_react@18.2.0
   open-props: 1.5.0
   react: 18.2.0
-  react-color: 2.19.3_react@18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-toastify: 9.1.1_biqbaboplfbrettd7655fr4n2y
   ts-pattern: 4.0.6
@@ -69,6 +66,7 @@ devDependencies:
   tsx: 3.12.1
   typescript: 4.9.3
   vite: 3.2.4
+  vite-plugin-top-level-await: 1.2.2_vite@3.2.4
 
 packages:
 
@@ -1517,14 +1515,6 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
-  /@icons/material/0.2.4_react@18.2.0:
-    resolution: {integrity: sha512-QPcGmICAPbGLGb6F/yNf/KzKqvFx8z5qx3D1yFqVAjoFmXK35EgyW+cJ57Te3CNsmzblwtzakLGFqHPqrfb4Tw==}
-    peerDependencies:
-      react: '*'
-    dependencies:
-      react: 18.2.0
-    dev: false
-
   /@jridgewell/gen-mapping/0.1.1:
     resolution: {integrity: sha512-sQXCasFk+U8lWYEe66WxRDOE9PjVz4vSM51fTu3Hw+ClTpUSQb718772vH3pyS5pShp6lvQM7SxgIDXXXmOX7w==}
     engines: {node: '>=6.0.0'}
@@ -1676,6 +1666,114 @@ packages:
     dependencies:
       react: 18.2.0
     dev: false
+
+  /@swc/core-darwin-arm64/1.3.22:
+    resolution: {integrity: sha512-MMhtPsuXp8gpUgr9bs+RZQ2IyFGiUNDG93usCDAFgAF+6VVp+YaAVjET/3/Bx5Lk2WAt0RxT62C9KTEw1YMo3w==}
+    engines: {node: '>=10'}
+    cpu: [arm64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@swc/core-darwin-x64/1.3.22:
+    resolution: {integrity: sha512-SG6QbNat4GZ5VJU3Zo6a54oQOtbhJVE6BCQw4JjOCZJmAeBzNebGy9wsT4+fCJNHC3C5qtaRw7ToXJvLniXwfg==}
+    engines: {node: '>=10'}
+    cpu: [x64]
+    os: [darwin]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@swc/core-linux-arm-gnueabihf/1.3.22:
+    resolution: {integrity: sha512-4E+TdQT1oHnHjDaPs/DyrRy9lOuFd6ncEd67yYA4j9lFqt6nuz/jnXss45k8KU7wR5kOTtdW73xPwkU4NbOWdw==}
+    engines: {node: '>=10'}
+    cpu: [arm]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@swc/core-linux-arm64-gnu/1.3.22:
+    resolution: {integrity: sha512-6VcynOMbOBcbLutIPENI3Ejvg5LGz/Pwvzm25hM0FoiEtPxHA+tawQUwLx8Alk1Yr+Rnqid06UEZ0veJOGn2pQ==}
+    engines: {node: '>=10'}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@swc/core-linux-arm64-musl/1.3.22:
+    resolution: {integrity: sha512-86RxGy0L3qa4De3xWHx8vL2caTxvSLSWTlgUW/Yd4l1pvrCFibMjhkImGu5ViKiReX9DlBtJ7CBs4dln2kHidw==}
+    engines: {node: '>=10'}
+    cpu: [arm64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@swc/core-linux-x64-gnu/1.3.22:
+    resolution: {integrity: sha512-FLkbiqsdXsVIFZi6iedx4rSBGX8x0vo/5aDlklSxJAAYOcQpO0QADKP5Yr65iMT1d6ABCt2d+/StpGLF7GWOcA==}
+    engines: {node: '>=10'}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@swc/core-linux-x64-musl/1.3.22:
+    resolution: {integrity: sha512-giBuw+Z0Bq6fpZ0Y5TcfpcQwf9p/cE1fOQyO/K1XSTn/haQOqFi7421Jq/dFThSARZiXw1u9Om9VFbwxr8VI+A==}
+    engines: {node: '>=10'}
+    cpu: [x64]
+    os: [linux]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@swc/core-win32-arm64-msvc/1.3.22:
+    resolution: {integrity: sha512-loKGO+ZM2By6VdrmVJk1G79jVgDPaee93qLFuis5KyeoLLb4m1MlNMc/6SIDZUSuYg6NqaGP1spFeiFetMQ4Zg==}
+    engines: {node: '>=10'}
+    cpu: [arm64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@swc/core-win32-ia32-msvc/1.3.22:
+    resolution: {integrity: sha512-lvNWAZ3QjXMsrsch6oLLQVikT/hC/4ZcLrTBXa14HwQylaYigkGElgp3ekJr78HjWDPwB46GXwBbNMG0VNAfvA==}
+    engines: {node: '>=10'}
+    cpu: [ia32]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@swc/core-win32-x64-msvc/1.3.22:
+    resolution: {integrity: sha512-ESyn4lZXAKEE3mcTaDfXatsolCiEfVGstsXdgBmZYa6o1IE1bDW8FE7Ob/Y+82WTpm9+A9ZYXYjZ62t67POHZg==}
+    engines: {node: '>=10'}
+    cpu: [x64]
+    os: [win32]
+    requiresBuild: true
+    dev: true
+    optional: true
+
+  /@swc/core/1.3.22:
+    resolution: {integrity: sha512-oQ9EPEb7NgWcGIDoVfLCuffvtC4MzVtrwjqwKzFHP8FUh1fn8+2wraOjkkDXW74BB4Hgve5ykkaHix9bebB9Ww==}
+    engines: {node: '>=10'}
+    hasBin: true
+    requiresBuild: true
+    optionalDependencies:
+      '@swc/core-darwin-arm64': 1.3.22
+      '@swc/core-darwin-x64': 1.3.22
+      '@swc/core-linux-arm-gnueabihf': 1.3.22
+      '@swc/core-linux-arm64-gnu': 1.3.22
+      '@swc/core-linux-arm64-musl': 1.3.22
+      '@swc/core-linux-x64-gnu': 1.3.22
+      '@swc/core-linux-x64-musl': 1.3.22
+      '@swc/core-win32-arm64-msvc': 1.3.22
+      '@swc/core-win32-ia32-msvc': 1.3.22
+      '@swc/core-win32-x64-msvc': 1.3.22
+    dev: true
 
   /@tsconfig/node10/1.0.9:
     resolution: {integrity: sha512-jNsYVVxU8v5g43Erja32laIDHXeoNvFEpX33OK4d6hljo3jDhCBDhx5dhCCTMWUojscpAagGiRkBKxpdl9fxqA==}
@@ -1900,20 +1998,6 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /@uiw/react-color-block/1.1.1_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-38SIp1H8ZVIw1sRjaP68Vop5Ock9GRo+p5q3NG7zmGlh4i095JjWLyd4oUD9ZO2uSc1tq92Ou5dOsJMl/t6LvA==}
-    peerDependencies:
-      react: '>=16.9.0'
-      react-dom: '>=16.9.0'
-    dependencies:
-      '@babel/runtime': 7.19.4
-      '@uiw/color-convert': 1.1.1
-      '@uiw/react-color-editable-input': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      '@uiw/react-color-swatch': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-    dev: false
-
   /@uiw/react-color-chrome/1.1.1_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-m9C9jEdu8Y/b6kT/d9rnxHAwBq9zavpmtIG/JSTdfgMROZO6PX0xA4eBjcBuYtwtz9pLU9yFNKrFsy4G3TgL/A==}
     peerDependencies:
@@ -1929,49 +2013,6 @@ packages:
       '@uiw/react-color-github': 1.1.1_biqbaboplfbrettd7655fr4n2y
       '@uiw/react-color-hue': 1.1.1_biqbaboplfbrettd7655fr4n2y
       '@uiw/react-color-saturation': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-    dev: false
-
-  /@uiw/react-color-circle/1.1.1_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-tJN3kpWeClqF/b97TCklzouS61bhBCtTurOCv7zYC0l/C/kVI2TWiulP88+j9tqzgw8z08Cf89qziuG0sxh8kA==}
-    peerDependencies:
-      react: '>=16.9.0'
-      react-dom: '>=16.9.0'
-    dependencies:
-      '@babel/runtime': 7.19.4
-      '@uiw/color-convert': 1.1.1
-      '@uiw/react-color-swatch': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-    dev: false
-
-  /@uiw/react-color-colorful/1.1.1_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-tN38NS8VzVSru3PBplXOVYwtKH4Z+cOT7uqCnmN0dalbhEbwkO5k7gRGvMoaHvesNSFxnVe7h3iglCQJtoeCsw==}
-    peerDependencies:
-      react: '>=16.9.0'
-      react-dom: '>=16.9.0'
-    dependencies:
-      '@babel/runtime': 7.19.4
-      '@uiw/color-convert': 1.1.1
-      '@uiw/react-color-alpha': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      '@uiw/react-color-hue': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      '@uiw/react-color-saturation': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-    dev: false
-
-  /@uiw/react-color-compact/1.1.1_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-Lr5D1v94Iglgz/q0nPHJ9eTozRd+jO1VhkH7v7TQCzAjXlHo4uObGhd3WIyoWqTY6/ye7ipiNG8lP9ncMPqopw==}
-    peerDependencies:
-      react: '>=16.9.0'
-      react-dom: '>=16.9.0'
-    dependencies:
-      '@babel/runtime': 7.19.4
-      '@uiw/color-convert': 1.1.1
-      '@uiw/react-color-editable-input': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      '@uiw/react-color-editable-input-rgba': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      '@uiw/react-color-swatch': 1.1.1_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     dev: false
@@ -2039,20 +2080,6 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /@uiw/react-color-material/1.1.1_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-XMGIn82ywsOUFKXeWGF1l2H8ErXfrp1v9QcmA1z7yKtmaVSqQkHzvx5gI5o6R5xW9iCzIqBqdfYwuwgSRxYtLA==}
-    peerDependencies:
-      react: '>=16.9.0'
-      react-dom: '>=16.9.0'
-    dependencies:
-      '@babel/runtime': 7.19.4
-      '@uiw/color-convert': 1.1.1
-      '@uiw/react-color-editable-input': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      '@uiw/react-color-editable-input-rgba': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-    dev: false
-
   /@uiw/react-color-saturation/1.1.1_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-WlJqpcvQDmvoh2gYlvIp5H3fnECAyHr+MYGRVSn1+cPuF/XRhrYnDaLFYjGXdYQpv69j1LSdJ1hOOg4dnoa4SQ==}
     peerDependencies:
@@ -2066,50 +2093,6 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /@uiw/react-color-shade-slider/1.1.1_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-svlUJTHevrkk4QDBblkxak3fL2xmHffv2aO7ymqb+VmG7TuFR8q/7Dbl6863mz4MAoTKmvQaRPwBHJdgCkuexQ==}
-    peerDependencies:
-      react: '>=16.9.0'
-      react-dom: '>=16.9.0'
-    dependencies:
-      '@babel/runtime': 7.19.4
-      '@uiw/color-convert': 1.1.1
-      '@uiw/react-color-alpha': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-    dev: false
-
-  /@uiw/react-color-sketch/1.1.1_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-x6vowLtFnSwpSlM0lo73XUBfwlk9QCLcOKc4BOYUMUfsdfDq29Mrg+9o7g8a//8io4xe95V6om4ZTbw4XqlIEQ==}
-    peerDependencies:
-      react: '>=16.9.0'
-      react-dom: '>=16.9.0'
-    dependencies:
-      '@babel/runtime': 7.19.4
-      '@uiw/color-convert': 1.1.1
-      '@uiw/react-color-alpha': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      '@uiw/react-color-editable-input': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      '@uiw/react-color-editable-input-rgba': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      '@uiw/react-color-hue': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      '@uiw/react-color-saturation': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      '@uiw/react-color-swatch': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-    dev: false
-
-  /@uiw/react-color-slider/1.1.1_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-QLeRNvtJjie2K20wvu6di3sAeDeuYUwShxLbQEnpvgqInN4AdzxxveM2Tm4RtlSyCoKupi0HH0Xb8SlLlmtW7Q==}
-    peerDependencies:
-      react: '>=16.9.0'
-      react-dom: '>=16.9.0'
-    dependencies:
-      '@babel/runtime': 7.19.4
-      '@uiw/color-convert': 1.1.1
-      '@uiw/react-color-alpha': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-    dev: false
-
   /@uiw/react-color-swatch/1.1.1_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-3j6HH9moKZDOV1ciYoQcL8RJz3Z/GtAOHk6u+aAPYkmQWDpHyoqnuwB4vy42rdl/h/2Db8OFMj21F6u7xw/vDA==}
     peerDependencies:
@@ -2118,48 +2101,6 @@ packages:
     dependencies:
       '@babel/runtime': 7.19.4
       '@uiw/color-convert': 1.1.1
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-    dev: false
-
-  /@uiw/react-color-wheel/1.1.1_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-E/sjUdbFsGCmljsjvg+suhEmROkV3OiBcm7g/TGfWW928cUhPySPAf7Qp9PZjWZ8zYnGA7hPPg3daFmjWKva0w==}
-    peerDependencies:
-      react: '>=16.9.0'
-      react-dom: '>=16.9.0'
-    dependencies:
-      '@babel/runtime': 7.19.4
-      '@uiw/color-convert': 1.1.1
-      '@uiw/react-drag-event-interactive': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-    dev: false
-
-  /@uiw/react-color/1.1.1_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-k3xKgPtqYHRu+CL9rubdoRlgTx/pxDHCWgDUoWgpnrW1+Tqaqb9snu8LPtAThpJ86Y4zKzAptzNuojs0hk+JnA==}
-    peerDependencies:
-      react: '>=16.9.0'
-      react-dom: '>=16.9.0'
-    dependencies:
-      '@uiw/color-convert': 1.1.1
-      '@uiw/react-color-alpha': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      '@uiw/react-color-block': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      '@uiw/react-color-chrome': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      '@uiw/react-color-circle': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      '@uiw/react-color-colorful': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      '@uiw/react-color-compact': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      '@uiw/react-color-editable-input': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      '@uiw/react-color-editable-input-hsla': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      '@uiw/react-color-editable-input-rgba': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      '@uiw/react-color-github': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      '@uiw/react-color-hue': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      '@uiw/react-color-material': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      '@uiw/react-color-saturation': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      '@uiw/react-color-shade-slider': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      '@uiw/react-color-sketch': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      '@uiw/react-color-slider': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      '@uiw/react-color-swatch': 1.1.1_biqbaboplfbrettd7655fr4n2y
-      '@uiw/react-color-wheel': 1.1.1_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     dev: false
@@ -4313,10 +4254,6 @@ packages:
       p-locate: 5.0.0
     dev: true
 
-  /lodash-es/4.17.21:
-    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
-    dev: false
-
   /lodash.debounce/4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
     dev: true
@@ -4346,6 +4283,7 @@ packages:
 
   /lodash/4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+    dev: true
 
   /log-symbols/4.1.0:
     resolution: {integrity: sha512-8XPvpAA8uyhfteu8pIvQxpJZ7SYYdpUivZpGy6sFsBuKRY/7rQGavedeB8aK+Zkyq6upMFVL/9AW6vOYzfRyLg==}
@@ -4391,10 +4329,6 @@ packages:
     resolution: {integrity: sha512-s8UhlNe7vPKomQhC1qFelMokr/Sc3AgNbso3n74mVPA5LTZwkB9NlXf4XPamLxJE8h0gh73rM94xvwRT2CVInw==}
     dev: true
     optional: true
-
-  /material-colors/1.2.6:
-    resolution: {integrity: sha512-6qE4B9deFBIa9YSpOc9O0Sgc43zTeVYbgDT5veRKSlB2+ZuHNoVVxA1L/ckMUayV9Ay9y7Z/SZCLcGteW9i7bg==}
-    dev: false
 
   /media-typer/0.3.0:
     resolution: {integrity: sha512-dq+qelQ9akHpcOl/gUVRTxVIOkAJ1wR3QAvb4RsVjS8oVoFjDGTc679wJYmUmknUF5HwMLOgb5O+a3KxfWapPQ==}
@@ -4533,6 +4467,7 @@ packages:
   /object-assign/4.1.1:
     resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==}
     engines: {node: '>=0.10.0'}
+    dev: true
 
   /object-inspect/1.12.2:
     resolution: {integrity: sha512-z+cPxW0QGUp0mcqcsgQyLVRDoXFQbXOwBaqyF7VIgI4TWNQsDHrBpUQslRmIfAoYWdYzs6UlKJtB2XJpTaNSpQ==}
@@ -4775,6 +4710,7 @@ packages:
       loose-envify: 1.4.0
       object-assign: 4.1.1
       react-is: 16.13.1
+    dev: true
 
   /proxy-addr/2.0.7:
     resolution: {integrity: sha512-llQsMLSUDUPT44jdrU/O37qlnifitDP+ZwrmmZcoSKyLKvtZxpyV0n2/bD/N4tBAAZ/gJEdZU7KMraoK1+XYAg==}
@@ -4829,21 +4765,6 @@ packages:
       unpipe: 1.0.0
     dev: true
 
-  /react-color/2.19.3_react@18.2.0:
-    resolution: {integrity: sha512-LEeGE/ZzNLIsFWa1TMe8y5VYqr7bibneWmvJwm1pCn/eNmrabWDh659JSPn9BuaMpEfU83WTOJfnCcjDZwNQTA==}
-    peerDependencies:
-      react: '*'
-    dependencies:
-      '@icons/material': 0.2.4_react@18.2.0
-      lodash: 4.17.21
-      lodash-es: 4.17.21
-      material-colors: 1.2.6
-      prop-types: 15.8.1
-      react: 18.2.0
-      reactcss: 1.2.3_react@18.2.0
-      tinycolor2: 1.4.2
-    dev: false
-
   /react-dom/18.2.0_react@18.2.0:
     resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
     peerDependencies:
@@ -4875,6 +4796,7 @@ packages:
 
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
+    dev: true
 
   /react-refresh/0.14.0:
     resolution: {integrity: sha512-wViHqhAd8OHeLS/IRMJjTSDHF3U9eWi62F/MledQGPdJGDhodXJ9PBLNGr6WWL7qlH12Mt3TyTpbS+hGXMjCzQ==}
@@ -4897,15 +4819,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
-
-  /reactcss/1.2.3_react@18.2.0:
-    resolution: {integrity: sha512-KiwVUcFu1RErkI97ywr8nvx8dNOpT03rbnma0SSalTYjkrPYaEajR4a/MRt6DZ46K6arDRbWMNHF+xH7G7n/8A==}
-    peerDependencies:
-      react: '*'
-    dependencies:
-      lodash: 4.17.21
-      react: 18.2.0
-    dev: false
 
   /readable-stream/3.6.0:
     resolution: {integrity: sha512-BViHy7LKeTz4oNnkcLJ+lVSL6vpiFeX6/d3oSH8zCW7UxP2onchk+vTGB143xuFjHS3deTgkKoXXymXqymiIdA==}
@@ -5399,10 +5312,6 @@ packages:
       globrex: 0.1.2
     dev: true
 
-  /tinycolor2/1.4.2:
-    resolution: {integrity: sha512-vJhccZPs965sV/L2sU4oRQVAos0pQXwsvTLkWYdqJ+a8Q5kPFzJTuOFwy7UniPli44NKQGAglksjvOcpo95aZA==}
-    dev: false
-
   /titleize/1.0.1:
     resolution: {integrity: sha512-rUwGDruKq1gX+FFHbTl5qjI7teVO7eOe+C8IcQ7QT+1BK3eEUXJqbZcBOeaRP4FwSC/C1A5jDoIVta0nIQ9yew==}
     engines: {node: '>=0.10.0'}
@@ -5636,6 +5545,15 @@ packages:
   /vary/1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
+    dev: true
+
+  /vite-plugin-top-level-await/1.2.2_vite@3.2.4:
+    resolution: {integrity: sha512-JBuY9X5KCxZyzwQUOIBpgX0Jbe2BECxwElWPeyrdRC5xaWzDibTG65QBW25COmwqHBeVlV04u8GTlJkuOWhfgw==}
+    peerDependencies:
+      vite: '>=2.8'
+    dependencies:
+      '@swc/core': 1.3.22
+      vite: 3.2.4
     dev: true
 
   /vite-tsconfig-paths/3.6.0_vite@3.2.4:
