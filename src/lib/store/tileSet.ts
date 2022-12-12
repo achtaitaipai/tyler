@@ -70,3 +70,14 @@ export const getTileFromIndexAtom = atom((get) => (index: number): Tile => {
 	const x = index % cols
 	return [x * width, y * height, width, height]
 })
+
+export const tilesetBase64Data = atom((get) => {
+	const canvas = document.createElement('canvas')
+	const ctx = canvas.getContext('2d')
+	if (!ctx) return
+	const img = get(tilesetImageAtom)
+	canvas.width = img.width
+	canvas.height = img.height
+	ctx.drawImage(img, 0, 0)
+	return canvas.toDataURL()
+})

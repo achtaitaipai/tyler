@@ -1,5 +1,6 @@
 import { atom } from 'jotai'
 import { atomWithStorage } from 'jotai/utils'
+import { initialGrid } from '../../settings/initialGrid'
 import { floodFill } from '../helpers/floodFill'
 import type { Cell } from '../types/cell'
 import type { Grid } from '../types/grid'
@@ -10,21 +11,7 @@ import {
 	tilesWidthAtom,
 } from './tileSet'
 
-export const gridAtom = atomWithStorage<Grid>('tylerGrid', [
-	'               ',
-	'               ',
-	'               ',
-	'               ',
-	'               ',
-	'               ',
-	'               ',
-	'               ',
-	'               ',
-	'               ',
-	'               ',
-	'               ',
-	'               ',
-])
+export const gridAtom = atomWithStorage<Grid>('tylerGrid', initialGrid)
 
 export const gridWidthAtom = atom((get) => get(gridAtom)[0].length)
 export const gridHeightAtom = atom((get) => get(gridAtom).length)
@@ -35,6 +22,18 @@ export const mapWidthAtom = atom(
 export const mapHeightAtom = atom(
 	(get) => get(gridHeightAtom) * get(tilesHeightAtom)
 )
+
+export const getImageAtom = atom((get) => {
+	const canvas = document.createElement('canvas')
+	const ctx = canvas.getContext('2d')
+	if (!ctx) return
+	canvas.width = get(mapWidthAtom)
+	canvas.height = get(mapHeightAtom)
+	get(getCellsAtom).forEach((tile) => {
+		if (tile !== null) ctx.drawImage(...tile)
+	})
+	return canvas
+})
 
 export const insertColumnAtom = atom(null, (get, set, x: number) =>
 	set(
@@ -57,7 +56,7 @@ export const removeColumnAtom = atom(null, (get, set, x: number) => {
 
 export const insertRowAtom = atom(null, (get, set, y: number) => {
 	const clone = [...get(gridAtom)]
-	const row = Array.from(Array(clone[0]?.length ?? 0), () => ' ').join('')
+	const row = ' '.repeat(clone[0]?.length ?? 0)
 	set(gridAtom, [...clone.slice(0, y), row, ...clone.slice(y)])
 })
 

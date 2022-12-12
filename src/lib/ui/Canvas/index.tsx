@@ -1,6 +1,12 @@
-import { useAtom } from 'jotai'
+import { useAtomValue } from 'jotai'
 import { useEffect, useRef } from 'react'
-import { getCellsAtom, mapHeightAtom, mapWidthAtom } from '../../store/grid'
+import { canvasBackgroundAtom } from '../../store/canvasBackground'
+import {
+	getCellsAtom,
+	getImageAtom,
+	mapHeightAtom,
+	mapWidthAtom,
+} from '../../store/grid'
 import { useEventsManager } from './hooks/useManageMouseEvents'
 import useMouseEvents from './hooks/useMouseEvents'
 import style from './style.module.css'
@@ -8,9 +14,11 @@ import style from './style.module.css'
 function Canvas() {
 	const canvasRef = useRef<HTMLCanvasElement>(null)
 
-	const [width] = useAtom(mapWidthAtom)
-	const [height] = useAtom(mapHeightAtom)
-	const [getCells] = useAtom(getCellsAtom)
+	const width = useAtomValue(mapWidthAtom)
+	const height = useAtomValue(mapHeightAtom)
+	const getCells = useAtomValue(getCellsAtom)
+	const image = useAtomValue(getImageAtom)
+	const canvasBackground = useAtomValue(canvasBackgroundAtom)
 
 	const { manageEvents, translate, zoom } = useEventsManager(canvasRef)
 
@@ -27,10 +35,10 @@ function Canvas() {
 				ctx.fillRect(x, y, 1, 1)
 			}
 		}
-		getCells.forEach((tile) => {
-			if (tile !== null) ctx.drawImage(...tile)
-		})
-	}, [canvasRef, getCells])
+		ctx.fillStyle = canvasBackground
+		ctx.fillRect(0, 0, width, height)
+		if (image) ctx.drawImage(image, 0, 0)
+	}, [canvasRef, getCells, image])
 
 	return (
 		<div className={style.wrapper}>
