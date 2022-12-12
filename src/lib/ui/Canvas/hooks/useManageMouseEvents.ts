@@ -1,4 +1,4 @@
-import { useAtomValue, useSetAtom } from 'jotai'
+import { useAtom, useAtomValue, useSetAtom } from 'jotai'
 import type { RefObject } from 'react'
 import { useCallback, useState } from 'react'
 import { match } from 'ts-pattern'
@@ -7,6 +7,10 @@ import {
 	getGroupAtom,
 	getTileFromGroupAndValue,
 } from '../../../store/autotileGroup'
+import {
+	canvasScaleAtom,
+	canvasTranslateAtom,
+} from '../../../store/canvasTransform'
 import {
 	floodFillGridAtom,
 	gridAtom,
@@ -38,8 +42,8 @@ const useManageMouseEvents = (ref: RefObject<HTMLElement>) => {
 	const floodFill = useAtomValue(floodFillGridAtom)
 	const tool = useAtomValue(toolAtom)
 	const currentTile = useAtomValue(selectedTileCharAtom)
-	const [translate, setTranslate] = useState({ x: 0, y: 0 })
-	const [scale, setScale] = useState(1)
+	const [translate, setTranslate] = useAtom(canvasTranslateAtom)
+	const [scale, setScale] = useAtom(canvasScaleAtom)
 	const historyPush = useSetAtom(historyPushAtom)
 
 	const handleCanvas = (oldPosition: Position, newPosition: Position) => {

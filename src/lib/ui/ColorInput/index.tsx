@@ -1,5 +1,5 @@
 import { Popover } from '@headlessui/react'
-import { Chrome } from '@uiw/react-color'
+import Chrome from '@uiw/react-color-chrome'
 import type { Dispatch, SetStateAction } from 'react'
 
 import style from './style.module.css'
