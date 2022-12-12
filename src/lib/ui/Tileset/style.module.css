@@ -18,10 +18,10 @@
 	content: '';
 	position: absolute;
 	inset: 0;
-	background-color: var(--clr-brand9);
-	opacity: 0.2;
+	background-color: var(--clr-neutral12);
+	opacity: 0.4;
 }
 
 .option[aria-checked='true'] {
-	outline: 2px solid var(--clr-brand8);
+	outline: 3px solid var(--clr-neutral9);
 }

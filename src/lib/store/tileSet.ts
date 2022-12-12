@@ -13,7 +13,7 @@ export const tilesetImageHeightAtom = atom(
 
 export const charMapAtom = atomWithStorage('tylercharmap', charsMap)
 
-const tilesetColumnsAtomBase = atomWithStorage('tylercols', 4)
+export const tilesetColumnsAtomBase = atomWithStorage('tylercols', 4)
 const tilesetRowsAtomBase = atomWithStorage('tylerrows', 4)
 
 export const tilesetColumnsAtom = atom(

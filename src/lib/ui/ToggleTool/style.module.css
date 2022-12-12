@@ -16,13 +16,9 @@
 }
 
 .checked {
-	background-color: var(--clr-brand5);
-	color: var(--clr-brand11);
-	outline: 1px solid var(--clr-brand8);
+	background-color: var(--clr-neutral9);
+	color: var(--clr-neutral1);
+	outline: 1px solid var(--clr-neutral8);
 	outline-offset: -1px;
 	border: 0;
-}
-
-.checked:hover {
-	background-color: var(--clr-brand4);
 }

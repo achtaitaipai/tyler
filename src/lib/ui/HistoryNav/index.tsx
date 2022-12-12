@@ -10,12 +10,12 @@ function HistoryNav() {
 	const redo = useSetAtom(redoAtom)
 	return (
 		<div className={style.wrapper}>
-			<Tooltip tip="undo" position="Top" htmlFor="undoButton">
+			<Tooltip tip="undo" position="Bottom" htmlFor="undoButton">
 				<button onClick={undo} className={style.btn} id="undoButton">
 					<ResetIcon />
 				</button>
 			</Tooltip>
-			<Tooltip tip="redo" position="Top" htmlFor="redoButton">
+			<Tooltip tip="redo" position="Bottom" htmlFor="redoButton">
 				<button
 					onClick={redo}
 					className={clsx(style.btn, style.flip)}

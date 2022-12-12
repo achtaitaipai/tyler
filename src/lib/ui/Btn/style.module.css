@@ -1,11 +1,11 @@
 .btn {
-	--bg: var(--clr-brand3);
-	--border: 1px solid var(--clr-brand7);
+	--bg: var(--clr-neutral3);
+	--border: 1px solid var(--clr-neutral7);
 	--color: var(--clr-neutral11);
 }
 .btn:hover {
-	--bg: var(--clr-brand4);
-	--border: 1px solid var(--clr-brand8);
+	--bg: var(--clr-neutral4);
+	--border: 1px solid var(--clr-neutral8);
 	--color: var(--clr-neutral12);
 }
 

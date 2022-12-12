@@ -11,7 +11,6 @@ import {
 import { historyPushAtom } from '../../store/history/index.ts'
 import Btn from '../Btn'
 import Canvas from '../Canvas'
-import HistoryNav from '../HistoryNav'
 import Tooltip from '../Tooltip'
 import style from './style.module.css'
 
@@ -132,7 +131,7 @@ function DrawingSection() {
 				<div className={style.column}>
 					<Tooltip
 						tip="insert a column"
-						position="Right"
+						position="Top"
 						htmlFor="insertLastColumn"
 					>
 						<Btn
@@ -148,7 +147,7 @@ function DrawingSection() {
 					</Tooltip>
 					<Tooltip
 						tip="remove a column"
-						position="Right"
+						position="Top"
 						htmlFor="removeLastColumn"
 					>
 						<Btn
@@ -165,7 +164,6 @@ function DrawingSection() {
 				</div>
 				<Canvas />
 			</div>
-			<HistoryNav />
 		</>
 	)
 }

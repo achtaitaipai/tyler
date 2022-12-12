@@ -72,6 +72,7 @@ export default function DropdownMenu() {
 		const reader = new FileReader()
 		reader.addEventListener('load', () => {
 			const src = reader.result
+			e.target.value = ''
 			if (typeof src === 'string') {
 				try {
 					const file = fileSchema.parse(JSON.parse(src))
@@ -119,7 +120,11 @@ export default function DropdownMenu() {
 								)}
 								onClick={() => fileRef.current?.click()}
 							>
-								<UploadIcon className={style.icon} />
+								<UploadIcon
+									className={style.icon}
+									width={20}
+									height={20}
+								/>
 								Open
 							</button>
 						)}
@@ -133,7 +138,11 @@ export default function DropdownMenu() {
 								)}
 								onClick={saveFile}
 							>
-								<DownloadIcon className={style.icon} />
+								<DownloadIcon
+									className={style.icon}
+									width={20}
+									height={20}
+								/>
 								Save
 							</button>
 						)}
@@ -147,7 +156,11 @@ export default function DropdownMenu() {
 								)}
 								onClick={downloadImage}
 							>
-								<ImageIcon className={style.icon} />
+								<ImageIcon
+									className={style.icon}
+									width={20}
+									height={20}
+								/>
 								Export Image
 							</button>
 						)}
@@ -162,7 +175,11 @@ export default function DropdownMenu() {
 								)}
 								onClick={clearCanvas}
 							>
-								<TrashIcon className={style.icon} />
+								<TrashIcon
+									className={style.icon}
+									width={20}
+									height={20}
+								/>
 								Clear the canvas
 							</button>
 						)}
@@ -176,7 +193,11 @@ export default function DropdownMenu() {
 								)}
 								onClick={fitToScreen}
 							>
-								<SizeIcon className={style.icon} />
+								<SizeIcon
+									className={style.icon}
+									width={20}
+									height={20}
+								/>
 								Fit to Screen
 							</button>
 						)}

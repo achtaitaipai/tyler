@@ -1,6 +1,6 @@
 .wrapper {
 	display: grid;
-	outline: 1px solid var(--clr-brand6);
+	outline: 1px solid var(--clr-neutral6);
 	outline-offset: 1px;
 	width: 300px;
 	height: 500px;
@@ -11,7 +11,7 @@
 
 .tileSettings {
 	background-color: var(--clr-neutral3);
-	border-bottom: 1px solid var(--clr-brand6);
+	border-bottom: 1px solid var(--clr-neutral6);
 	display: grid;
 	place-items: center;
 }

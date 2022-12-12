@@ -9,7 +9,7 @@ export default function ThemeSwitch() {
 	}
 
 	return (
-		<Tooltip position="Bottom" tip={isDark ? 'Dark theme' : 'Light theme'}>
+		<Tooltip position="Top" tip={isDark ? 'Dark theme' : 'Light theme'}>
 			<button
 				aria-checked="false"
 				role="switch"

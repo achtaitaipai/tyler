@@ -6,7 +6,9 @@ import type { Cell } from '../types/cell'
 import type { Grid } from '../types/grid'
 import {
 	getTileFromCharAtom,
+	tilesetColumnsAtom,
 	tilesetImageAtom,
+	tilesetRowsAtom,
 	tilesHeightAtom,
 	tilesWidthAtom,
 } from './tileSet'
@@ -88,6 +90,8 @@ export const setCellsAtom = atom(null, (get, set, cells: Cell | Cell[]) => {
 
 export const getCellsAtom = atom((get) => {
 	const grid = get(gridAtom)
+	get(tilesetColumnsAtom)
+	get(tilesetRowsAtom)
 	return grid.flatMap((line, y) =>
 		line.split('').map((c, x) => {
 			const tile = get(getTileFromCharAtom)(c)

@@ -2,8 +2,8 @@ import { useAtomValue } from 'jotai'
 import { useEffect, useRef } from 'react'
 import { canvasBackgroundAtom } from '../../store/canvasBackground'
 import {
-	getCellsAtom,
 	getImageAtom,
+	gridAtom,
 	mapHeightAtom,
 	mapWidthAtom,
 } from '../../store/grid'
@@ -16,7 +16,6 @@ function Canvas() {
 
 	const width = useAtomValue(mapWidthAtom)
 	const height = useAtomValue(mapHeightAtom)
-	const getCells = useAtomValue(getCellsAtom)
 	const image = useAtomValue(getImageAtom)
 	const canvasBackground = useAtomValue(canvasBackgroundAtom)
 
@@ -38,7 +37,7 @@ function Canvas() {
 		ctx.fillStyle = canvasBackground
 		ctx.fillRect(0, 0, width, height)
 		if (image) ctx.drawImage(image, 0, 0)
-	}, [canvasRef, getCells, image])
+	}, [canvasRef, image, canvasBackground])
 
 	return (
 		<div className={style.wrapper}>
