@@ -13,4 +13,5 @@ export default defineConfig({
 			promiseImportName: (i) => `__tla_${i}`,
 		}),
 	],
+	base: 'https://achtaitaipai.github.io/tyler',
 })
